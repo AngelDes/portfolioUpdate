@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Angel Arreguín — Product Designer</title>
+<title>Luis Angel Arreguín — Product Designer</title>
 <style>
   :root {
     --ink: #1a1a1a;
@@ -62,3 +62,620 @@
   }
 
   #about p { font-size: 1.05rem; max-width: 640px; }
+
+  /* ---- Project cards ---- */
+  .project { margin-bottom: 56px; }
+  .project:last-child { margin-bottom: 0; }
+  .project-name {
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .project-tags {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 4px;
+    background: var(--accent);
+  }
+  .card-grid { display: grid; grid-template-columns: 1.3fr 1fr; }
+  .card-grid .col-main { padding: 32px; }
+  .card-grid .col-side { padding: 32px; background: var(--panel-bg); }
+  .card-single { padding: 32px; }
+
+  .card h3.card-title { font-size: 1.3rem; font-weight: 800; margin: 0 0 20px; }
+  .card h4.block-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .card p { margin: 0 0 20px; font-size: 0.95rem; }
+  .card p:last-child { margin-bottom: 0; }
+  .metric-block { margin-bottom: 18px; }
+  .metric-block:last-child { margin-bottom: 0; }
+  .metric-block strong.metric-label { display: block; margin-bottom: 2px; }
+
+  .details-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .details-grid .col-info { padding: 32px; }
+  .details-grid .col-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    min-height: 220px;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+  .details-grid .field { margin-bottom: 12px; font-size: 0.95rem; }
+  .details-grid .field dt { font-weight: 700; display: inline; }
+  .details-grid .field dd { display: inline; margin: 0; }
+
+  .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 32px; }
+  .impact-grid ul { margin: 0; padding-left: 18px; font-size: 0.95rem; }
+  .impact-grid li { margin-bottom: 10px; }
+  .impact-grid .empty { color: var(--muted); font-style: italic; font-size: 0.9rem; }
+
+  .contribution-list { padding-left: 18px; font-size: 0.9rem; margin: 0; }
+  .contribution-list li { margin-bottom: 6px; }
+
+  /* ---- Resume ---- */
+  .resume-item { margin-bottom: 24px; }
+  .resume-item h3 { margin: 0 0 2px; font-size: 1.05rem; }
+  .resume-item .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 8px; }
+  .resume-item ul { margin: 0; padding-left: 18px; font-size: 0.95rem; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; font-size: 0.9rem; }
+  .skills-grid strong { display:block; font-size:0.75rem; text-transform:uppercase; color: var(--muted); margin-bottom:6px; letter-spacing:0.05em; }
+
+  table.exp { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 8px; }
+  table.exp th, table.exp td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+  table.exp th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 600; }
+  .cert-item, .edu-item { margin-bottom: 14px; }
+  .cert-item .name, .edu-item .name { font-weight: 600; }
+  .cert-item .meta, .edu-item .meta { color: var(--muted); font-size: 0.85rem; }
+
+  /* ---- Contact ---- */
+  #contact a { color: var(--ink); }
+  .contact-links { display: flex; gap: 20px; font-size: 0.95rem; flex-wrap: wrap; }
+
+  footer { max-width: var(--maxw); margin: 0 auto; padding: 24px; font-size: 0.8rem; color: var(--muted); }
+
+  @media (max-width: 680px) {
+    header { padding: 56px 20px 32px; }
+    section { padding: 40px 0; }
+    .card-grid, .details-grid, .impact-grid { grid-template-columns: 1fr; }
+    .details-grid .col-visual { min-height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Luis Angel Arreguín</h1>
+  <p class="role">Product / UX Designer &mdash; Lead Product Designer</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I'm a user experience and digital product designer with experience across strategy, design,
+      and development of web-based products with a mobile-first approach. I work with design thinking
+      and agile teams, and currently lead a design and development team.
+    </p>
+    <p>
+      I'm passionate about finding the intersection between the best possible user experience and
+      business goals — running workshops with stakeholders and users to identify needs and define
+      product direction. I'm a certified Scrum Master and believe agile frameworks are key to
+      building solutions that create real impact.
+    </p>
+  </section>
+
+  <section id="work">
+    <h2>Selected Work</h2>
+
+    <!-- ===================== LYNIT ===================== -->
+    <article class="project">
+      <div class="project-name">Lynit</div>
+      <span class="project-tags">Design Thinking · Shape Up · Atomic Design</span>
+
+      <div class="card card-grid">
+        <div class="col-main">
+          <h3 class="card-title">Summary</h3>
+          <h4 class="block-label">About</h4>
+          <p>Lynit is a cloud-based web application that helps writers outline their stories with data visualization and mind mapping tools, giving a visual representation of story elements and how they relate to each other.</p>
+          <h4 class="block-label">My Contribution</h4>
+          <p>As Sr. UX Designer and Team Lead, I led problem definition through Shape Up, directed research and the design system, and guided the team from redesign strategy through phased launch and measurement.</p>
+        </div>
+        <div class="col-side">
+          <h4 class="block-label">Key Metrics &amp; Outcomes</h4>
+          <div class="metric-block">
+            <strong class="metric-label">Business Impact</strong>
+            Returning users grew 30% after launch; connection creation rose 40%
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">User Impact</strong>
+            Time-to-first-connection dropped 25%
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">Process Improvements</strong>
+            Feature implementation time fell 35% after the design system rollout
+          </div>
+        </div>
+      </div>
+
+      <div class="card details-grid">
+        <div class="col-info">
+          <h3 class="card-title">Project Details</h3>
+          <div class="field"><dt>Type:</dt> <dd>B2C Web Application</dd></div>
+          <div class="field"><dt>Role:</dt> <dd>Sr. UX Designer, Team Lead</dd></div>
+          <div class="field"><dt>Duration:</dt> <dd>2 years</dd></div>
+          <div class="field"><dt>Methodologies:</dt> <dd>Design Thinking, Shape Up, Atomic Design</dd></div>
+        </div>
+        <div class="col-visual" style="background: linear-gradient(135deg, #3f6b8c, #5a8caa);">Add product screenshot here</div>
+      </div>
+
+      <div class="card">
+        <div style="padding: 32px 32px 0;"><h3 class="card-title">Results &amp; Impact</h3></div>
+        <div class="impact-grid">
+          <div>
+            <h4 class="block-label">Quantitative Outcomes</h4>
+            <ul>
+              <li><strong>Retention:</strong> Returning users up 30%; only 17% returned week-one pre-redesign</li>
+              <li><strong>Activation:</strong> Connection creation up 40%; only 10% of users updated a connection pre-redesign</li>
+              <li><strong>Speed:</strong> Time-to-first-connection down 25%</li>
+              <li><strong>Efficiency:</strong> Feature implementation time down 35%</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="block-label">Qualitative Feedback</h4>
+            <ul>
+              <li>Team adopted shared design principles that resolved debates and sped up decisions</li>
+              <li>Design-impact reporting became the standard the team used to evaluate every release</li>
+              <li>Engineering reported far fewer design-clarification requests after the system rollout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-single">
+        <h3 class="card-title">Business Goals</h3>
+        <p>The redesign directly addressed Lynit's core retention problem, turning a leaky onboarding funnel into a repeatable, measured process — and gave the org a design system and measurement framework built to support future release cycles.</p>
+      </div>
+    </article>
+
+    <!-- ===================== POLISTAT ===================== -->
+    <article class="project">
+      <div class="project-name">Polistat</div>
+      <span class="project-tags">Scrum · Design Thinking · Design Sprint</span>
+
+      <div class="card card-grid">
+        <div class="col-main">
+          <h3 class="card-title">Summary</h3>
+          <h4 class="block-label">About</h4>
+          <p>Polistat is a cloud-based web application that enables data capture and georeferencing for police intelligence and analysis, improving decision-making, resource allocation, and intelligence operations through data-driven insights.</p>
+          <h4 class="block-label">My Contribution</h4>
+          <p>I served as the Lead Product Designer and UX/UI Designer throughout the entire process, from problem definition to delivery and implementation of the initial and subsequent iterations of the application.</p>
+        </div>
+        <div class="col-side">
+          <h4 class="block-label">Key Metrics &amp; Outcomes</h4>
+          <div class="metric-block">
+            <strong class="metric-label">Business Impact</strong>
+            60% reduction in incident reporting time, 45% reduction in report generation time
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">User Impact</strong>
+            30% increase in complete reports after the first month, 5% improvement in data accuracy
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">Process Improvements</strong>
+            More efficient resource management and enhanced data analysis capabilities
+          </div>
+        </div>
+      </div>
+
+      <div class="card details-grid">
+        <div class="col-info">
+          <h3 class="card-title">Project Details</h3>
+          <div class="field"><dt>Type:</dt> <dd>B2B Web Application</dd></div>
+          <div class="field"><dt>Role:</dt> <dd>Sr. Product Designer, Team Lead</dd></div>
+          <div class="field"><dt>Duration:</dt> <dd>6 months</dd></div>
+          <div class="field"><dt>Methodologies:</dt> <dd>Atomic Design, Design Sprint, Design Thinking, Scrum</dd></div>
+        </div>
+        <div class="col-visual" style="background: linear-gradient(135deg, #6b5b95, #82708f);">Add product screenshot here</div>
+      </div>
+
+      <div class="card">
+        <div style="padding: 32px 32px 0;"><h3 class="card-title">Results &amp; Impact</h3></div>
+        <div class="impact-grid">
+          <div>
+            <h4 class="block-label">Quantitative Outcomes</h4>
+            <ul>
+              <li><strong>Reporting Efficiency:</strong> 60% reduction in time to report incidents</li>
+              <li><strong>Report Generation:</strong> 45% reduction in time to generate reports</li>
+              <li><strong>Data Quality:</strong> 30% increase in complete reports, 5% improvement in data accuracy</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="block-label">Qualitative Feedback</h4>
+            <ul>
+              <li>Users reported more efficient resource management</li>
+              <li>Analysis of charts and reports was noted to be more useful and accessible</li>
+              <li>Dynamic features like heat maps and predictive intelligence were highly valued</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-single">
+        <h3 class="card-title">Business Goals</h3>
+        <p>The solution successfully met all primary business goals, improving resource allocation, streamlining processes, and enabling data-driven decision making. The platform created a foundation for continued improvements and additional modules, including future work on gender and family violence cases.</p>
+      </div>
+    </article>
+
+    <!-- ===================== CONOCIMIENTO 230 ===================== -->
+    <article class="project">
+      <div class="project-name">Conocimiento 230</div>
+      <span class="project-tags">Scrum · Design Thinking · Agile/Lean</span>
+
+      <div class="card card-grid">
+        <div class="col-main">
+          <h3 class="card-title">Summary</h3>
+          <h4 class="block-label">About</h4>
+          <p>A cloud-hosted digital platform for managing resources — also serving as a repository of information and a records manager of the organization's experience.</p>
+          <h4 class="block-label">My Contribution</h4>
+          <p>As Lead Product Designer, I owned scope definition, roadmap and release planning, and led the team through research, prototyping, and validation using Scrum-based planning tools.</p>
+        </div>
+        <div class="col-side">
+          <h4 class="block-label">Key Metrics &amp; Outcomes</h4>
+          <div class="metric-block">
+            <strong class="metric-label">Business Impact</strong>
+            Redesign corrected a mismatch between earlier versions and actual user needs
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">User Impact</strong>
+            Broader set of user profiles and scenarios now served
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">Process Improvements</strong>
+            Formal Scrum work plan brought structure to release cycles
+          </div>
+        </div>
+      </div>
+
+      <div class="card details-grid">
+        <div class="col-info">
+          <h3 class="card-title">Project Details</h3>
+          <div class="field"><dt>Type:</dt> <dd>B2B Web Platform</dd></div>
+          <div class="field"><dt>Role:</dt> <dd>Lead Product Designer</dd></div>
+          <div class="field"><dt>Duration:</dt> <dd>Not specified</dd></div>
+          <div class="field"><dt>Methodologies:</dt> <dd>Scrum, Design Thinking, Agile/Lean</dd></div>
+        </div>
+        <div class="col-visual" style="background: linear-gradient(135deg, #4a7c59, #6fa287);">Add product screenshot here</div>
+      </div>
+
+      <div class="card">
+        <div style="padding: 32px 32px 0;"><h3 class="card-title">Results &amp; Impact</h3></div>
+        <div class="impact-grid">
+          <div>
+            <h4 class="block-label">Quantitative Outcomes</h4>
+            <p class="empty">No numeric metrics recorded for this project yet — add if available.</p>
+          </div>
+          <div>
+            <h4 class="block-label">Qualitative Feedback</h4>
+            <ul>
+              <li>Earlier versions were found not to solve the user's real underlying need</li>
+              <li>Rebuild around research insights let more scenarios and profiles be served</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-single">
+        <h3 class="card-title">Business Goals</h3>
+        <p>The redesign realigned the product with the organization's actual resource-management and knowledge-repository needs, giving the team a validated foundation to plan future releases from.</p>
+      </div>
+    </article>
+
+    <!-- ===================== MAPEO DE DECISIONES ===================== -->
+    <article class="project">
+      <div class="project-name">Mapeo de Decisiones</div>
+      <span class="project-tags">Scrum · Design Thinking · Service Blueprints</span>
+
+      <div class="card card-grid">
+        <div class="col-main">
+          <h3 class="card-title">Summary</h3>
+          <h4 class="block-label">About</h4>
+          <p>A platform for capturing and processing information to document decision-mapping by Public Prosecutor's Offices and Attorneys General across Mexico.</p>
+          <h4 class="block-label">My Contribution</h4>
+          <p>As Product Designer, I defined project scope, documented data/process flows, and led IA, prototyping, and testing work from beta through full release.</p>
+        </div>
+        <div class="col-side">
+          <h4 class="block-label">Key Metrics &amp; Outcomes</h4>
+          <div class="metric-block">
+            <strong class="metric-label">Business Impact</strong>
+            V1 shipped in record time via strict prioritization
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">User Impact</strong>
+            Real-time tracking of captured field data
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">Process Improvements</strong>
+            Lean MVP approach enabled fast, low-risk iteration
+          </div>
+        </div>
+      </div>
+
+      <div class="card details-grid">
+        <div class="col-info">
+          <h3 class="card-title">Project Details</h3>
+          <div class="field"><dt>Type:</dt> <dd>B2G Platform</dd></div>
+          <div class="field"><dt>Role:</dt> <dd>Product Designer</dd></div>
+          <div class="field"><dt>Duration:</dt> <dd>Not specified</dd></div>
+          <div class="field"><dt>Methodologies:</dt> <dd>Scrum, Design Thinking, Service Blueprints</dd></div>
+        </div>
+        <div class="col-visual" style="background: linear-gradient(135deg, #8c5a3f, #b0805e);">Add product screenshot here</div>
+      </div>
+
+      <div class="card">
+        <div style="padding: 32px 32px 0;"><h3 class="card-title">Results &amp; Impact</h3></div>
+        <div class="impact-grid">
+          <div>
+            <h4 class="block-label">Quantitative Outcomes</h4>
+            <p class="empty">No numeric metrics recorded for this project yet — add if available.</p>
+          </div>
+          <div>
+            <h4 class="block-label">Qualitative Feedback</h4>
+            <ul>
+              <li>Significantly streamlined field data-capture and tracking process</li>
+              <li>Strict categorization and prioritization got v1 out in record time</li>
+              <li>Lean MVP approach increased user acceptance and satisfaction through iteration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-single">
+        <h3 class="card-title">Business Goals</h3>
+        <p>The platform gave field users a faster, more reliable way to document decision-mapping data, supporting better process innovation across Prosecutor's Offices and Attorneys General.</p>
+      </div>
+    </article>
+
+    <!-- ===================== BEFECTIVE ===================== -->
+    <article class="project">
+      <div class="project-name">Befective</div>
+      <span class="project-tags">Scrum · Design Sprint · OKRs · Kanban</span>
+
+      <div class="card card-grid">
+        <div class="col-main">
+          <h3 class="card-title">Summary</h3>
+          <h4 class="block-label">About</h4>
+          <p>Befective is a SaaS application that helps companies manage time and resources, automatically collecting data on time spent across user activities.</p>
+          <h4 class="block-label">My Contribution</h4>
+          <p>As UX/UI Designer and UI Developer, I optimized user flows, developed customer journeys, and led design sprints end-to-end to validate new directions for the product.</p>
+        </div>
+        <div class="col-side">
+          <h4 class="block-label">Key Metrics &amp; Outcomes</h4>
+          <div class="metric-block">
+            <strong class="metric-label">Business Impact</strong>
+            Design sprints directly shaped the roadmap for upcoming releases
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">User Impact</strong>
+            Evidence-based validation brought the product closer to real user needs
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">Process Improvements</strong>
+            A/B testing and card sorting embedded into the regular design cycle
+          </div>
+        </div>
+      </div>
+
+      <div class="card details-grid">
+        <div class="col-info">
+          <h3 class="card-title">Project Details</h3>
+          <div class="field"><dt>Type:</dt> <dd>SaaS Application</dd></div>
+          <div class="field"><dt>Role:</dt> <dd>UX/UI Designer, UI Developer</dd></div>
+          <div class="field"><dt>Duration:</dt> <dd>Not specified</dd></div>
+          <div class="field"><dt>Methodologies:</dt> <dd>Scrum, Design Sprint, OKRs, Kanban</dd></div>
+        </div>
+        <div class="col-visual" style="background: linear-gradient(135deg, #b0546b, #d17c8f);">Add product screenshot here</div>
+      </div>
+
+      <div class="card">
+        <div style="padding: 32px 32px 0;"><h3 class="card-title">Results &amp; Impact</h3></div>
+        <div class="impact-grid">
+          <div>
+            <h4 class="block-label">Quantitative Outcomes</h4>
+            <p class="empty">No numeric metrics recorded for this project yet — add if available.</p>
+          </div>
+          <div>
+            <h4 class="block-label">Qualitative Feedback</h4>
+            <ul>
+              <li>Design sprints surfaced valuable insights for upcoming releases</li>
+              <li>Gathered enough evidence to bring the product meaningfully closer to real user needs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-single">
+        <h3 class="card-title">Business Goals</h3>
+        <p>Regular design sprints gave the team a repeatable way to test and validate ideas quickly, keeping the roadmap grounded in evidence rather than assumption.</p>
+      </div>
+    </article>
+
+    <!-- ===================== BANORTE TRADING ===================== -->
+    <article class="project">
+      <div class="project-name">Banorte Trading</div>
+      <span class="project-tags">Scrum · Design Thinking · Lean UX</span>
+
+      <div class="card card-grid">
+        <div class="col-main">
+          <h3 class="card-title">Summary</h3>
+          <h4 class="block-label">About</h4>
+          <p>An application for executing trades, monitoring financial markets, and buying/selling financial instruments.</p>
+          <h4 class="block-label">My Contribution</h4>
+          <p>As Lead UI Designer and Lead Product Designer, I led the deconstruction of the platform into reusable components and drove the complete redesign under a tight deadline.</p>
+        </div>
+        <div class="col-side">
+          <h4 class="block-label">Key Metrics &amp; Outcomes</h4>
+          <div class="metric-block">
+            <strong class="metric-label">Business Impact</strong>
+            Full redesign shipped on a tight deadline at an advanced development stage
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">User Impact</strong>
+            Modernized UI met quality, usability, and accessibility standards
+          </div>
+          <div class="metric-block">
+            <strong class="metric-label">Process Improvements</strong>
+            Reusable component library standardized workflows across the platform
+          </div>
+        </div>
+      </div>
+
+      <div class="card details-grid">
+        <div class="col-info">
+          <h3 class="card-title">Project Details</h3>
+          <div class="field"><dt>Type:</dt> <dd>Fintech Web Application</dd></div>
+          <div class="field"><dt>Role:</dt> <dd>Lead UI Designer, Lead Product Designer</dd></div>
+          <div class="field"><dt>Duration:</dt> <dd>Not specified</dd></div>
+          <div class="field"><dt>Methodologies:</dt> <dd>Scrum, Design Thinking, Lean UX</dd></div>
+        </div>
+        <div class="col-visual" style="background: linear-gradient(135deg, #2f4d7d, #4c6da3);">Add product screenshot here</div>
+      </div>
+
+      <div class="card">
+        <div style="padding: 32px 32px 0;"><h3 class="card-title">Results &amp; Impact</h3></div>
+        <div class="impact-grid">
+          <div>
+            <h4 class="block-label">Quantitative Outcomes</h4>
+            <p class="empty">No numeric metrics recorded for this project yet — add if available.</p>
+          </div>
+          <div>
+            <h4 class="block-label">Qualitative Feedback</h4>
+            <ul>
+              <li>Product team successfully shipped a complete redesign mid-development-cycle</li>
+              <li>Met quality, usability, and human-centered design standards under a tight deadline</li>
+              <li>Material Design guidance and rapid stakeholder iteration kept scope realistic</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-single">
+        <h3 class="card-title">Business Goals</h3>
+        <p>The redesign modernized the trading platform's UI and standardized its component library, positioning the product for faster, more consistent future development.</p>
+      </div>
+    </article>
+
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+
+    <div class="resume-item">
+      <h3>Professional Experience</h3>
+      <table class="exp">
+        <thead>
+          <tr><th>Company</th><th>From</th><th>Job Title</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>JumpCloud</td><td>2022–2024</td><td>Sr. Product Designer</td></tr>
+          <tr><td>Lynit</td><td>2020–2022</td><td>Sr. Interaction Designer | Product Design Team Lead</td></tr>
+          <tr><td>C230 Consultores</td><td>2018–2020</td><td>Sr. UX/UI Designer | Product Design Lead</td></tr>
+          <tr><td>Marcap / People One Software</td><td>2016–2018</td><td>Sr. UX Designer | Sr. UI Developer</td></tr>
+          <tr><td>Utel Universidad</td><td>2016–2016</td><td>UX/UI Designer</td></tr>
+          <tr><td>Batchmaster Iberoamérica</td><td>2015–2016</td><td>Digital Web Designer</td></tr>
+          <tr><td>Multiversidad Edgar Morin</td><td>2014–2015</td><td>UI Web Designer</td></tr>
+          <tr><td>Comercializadora Mexami</td><td>2012–2014</td><td>Jr. Web Designer</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="resume-item">
+      <h3>Education</h3>
+      <div class="edu-item">
+        <div class="name">Bachelor's in Graphic Design</div>
+        <div class="meta">Universidad de Ecatepec &nbsp;·&nbsp; 2008–2012</div>
+      </div>
+    </div>
+
+    <div class="resume-item">
+      <h3>Certifications</h3>
+      <div class="cert-item">
+        <div class="name">Enterprise Design Thinking Co-Creator</div>
+        <div class="meta">IBM · January 2022</div>
+      </div>
+      <div class="cert-item">
+        <div class="name">Enterprise Design Thinking Practitioner</div>
+        <div class="meta">IBM · January 2020</div>
+      </div>
+      <div class="cert-item">
+        <div class="name">Certified Scrum Master</div>
+        <div class="meta">Scrum Alliance · July 2019</div>
+      </div>
+      <div class="cert-item">
+        <div class="name">Design Thinking: The Beginner's Guide</div>
+        <div class="meta">The Interaction Design Foundation · September 2019</div>
+      </div>
+    </div>
+
+    <div class="resume-item">
+      <h3>Skills</h3>
+      <div class="skills-grid">
+        <div><strong>Design</strong>UX/UI, Design Systems, Prototyping, Interaction Design</div>
+        <div><strong>Research</strong>Journey Mapping, Usability Testing, Data Analysis</div>
+        <div><strong>Process</strong>Design Thinking, Shape Up, Scrum, Lean UX</div>
+        <div><strong>Tools</strong>Figma, Sketch, Adobe XD, Amplitude, LogRocket, Miro</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-links">
+      <a href="mailto:l.angelarreguinperez@gmail.com">l.angelarreguinperez@gmail.com</a>
+      <a href="tel:+525565139155">(55) 65 13 91 55</a>
+      <a href="#" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Luis Angel Arreguín
+</footer>
+
+</body>
+</html>
