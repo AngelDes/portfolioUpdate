@@ -120,6 +120,28 @@
     color: var(--muted);
   }
 
+    table.exp {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+  table.exp th, table.exp td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.exp th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .cert-item, .edu-item { margin-bottom: 14px; }
+  .cert-item .name, .edu-item .name { font-weight: 600; }
+  .cert-item .meta, .edu-item .meta { color: var(--muted); font-size: 0.85rem; }
+
   @media (max-width: 600px) {
     header { padding: 56px 20px 32px; }
     section { padding: 40px 0; }
@@ -214,10 +236,25 @@
         <li>Led QA and stakeholder review ahead of beta and full release</li>
       </ul>
 
-      <div class="impact">
-        Polistat streamlines the administrative process of reporting a criminal act and, through
-        data analysis and machine learning, supports police intelligence with a direct impact on
-        citizen safety. Future versions were scoped to include modules for gender and family violence.
+            <div class="impact">
+        After v1 launch, Polistat streamlined administrative processes and resource management,
+        enabling seamless development of police intelligence — with room identified for further
+        improvement in later versions.
+        <br><br>
+        <strong>Quantitatively:</strong>
+        <ul style="margin: 8px 0 0; padding-left: 18px;">
+          <li>Time to report an incident reduced by ~<strong>60%</strong></li>
+          <li>Time to generate reports reduced by ~<strong>45%</strong></li>
+          <li>Complete reports increased by <strong>30%</strong> after the first month</li>
+          <li>Data accuracy increased by an estimated <strong>5%</strong> after the first week (further improved in v1.1 with machine learning)</li>
+        </ul>
+        <strong>Qualitatively:</strong>
+        <ul style="margin: 8px 0 0; padding-left: 18px;">
+          <li>Resource management was noted to be more efficient</li>
+          <li>Charts and reports were easier to analyze thanks to dynamic charts, automated reports, heatmaps, and predictive intelligence</li>
+        </ul>
+        Next versions were scoped to include modules addressing gender and family violence, based
+        on insights gathered during user interviews and data pattern analysis.
       </div>
 
       <div class="process">
@@ -365,16 +402,54 @@
     </article>
   </section>
 
-  <section id="resume">
+    <section id="resume">
     <h2>Resume</h2>
 
     <div class="resume-item">
-      <h3>Lead Product Designer / Team Lead</h3>
-      <div class="meta">Company Name · Dates</div>
-      <ul>
-        <li>Led design team and cross-functional collaboration with engineering and product</li>
-        <li>Directed research, design systems, and measurement practices across multiple product cycles</li>
-      </ul>
+      <h3>Professional Experience</h3>
+      <table class="exp">
+        <thead>
+          <tr><th>Company</th><th>From</th><th>Job Title</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>JumpCloud</td><td>2022–2024</td><td>Sr. Product Designer</td></tr>
+          <tr><td>Lynit</td><td>2020–2022</td><td>Sr. Interaction Designer | Product Design Team Lead</td></tr>
+          <tr><td>C230 Consultores</td><td>2018–2020</td><td>Sr. UX/UI Designer | Product Design Lead</td></tr>
+          <tr><td>Marcap / People One Software</td><td>2016–2018</td><td>Sr. UX Designer | Sr. UI Developer</td></tr>
+          <tr><td>Utel Universidad</td><td>2016–2016</td><td>UX/UI Designer</td></tr>
+          <tr><td>Batchmaster Iberoamérica</td><td>2015–2016</td><td>Digital Web Designer</td></tr>
+          <tr><td>Multiversidad Edgar Morin</td><td>2014–2015</td><td>UI Web Designer</td></tr>
+          <tr><td>Comercializadora Mexami</td><td>2012–2014</td><td>Jr. Web Designer</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="resume-item">
+      <h3>Education</h3>
+      <div class="edu-item">
+        <div class="name">Bachelor's in Graphic Design</div>
+        <div class="meta">Universidad de Ecatepec &nbsp;·&nbsp; 2008–2012</div>
+      </div>
+    </div>
+
+    <div class="resume-item">
+      <h3>Certifications</h3>
+      <div class="cert-item">
+        <div class="name">Enterprise Design Thinking Co-Creator</div>
+        <div class="meta">IBM · January 2022</div>
+      </div>
+      <div class="cert-item">
+        <div class="name">Enterprise Design Thinking Practitioner</div>
+        <div class="meta">IBM · January 2020</div>
+      </div>
+      <div class="cert-item">
+        <div class="name">Certified Scrum Master</div>
+        <div class="meta">Scrum Alliance · July 2019</div>
+      </div>
+      <div class="cert-item">
+        <div class="name">Design Thinking: The Beginner's Guide</div>
+        <div class="meta">The Interaction Design Foundation · September 2019</div>
+      </div>
     </div>
 
     <div class="resume-item">
@@ -386,8 +461,6 @@
         <div><strong>Tools</strong>Figma, Sketch, Adobe XD, Amplitude, LogRocket, Miro</div>
       </div>
     </div>
-
-    <p><em>(Add education, certifications, and full work history here.)</em></p>
   </section>
 
   <section id="contact">
