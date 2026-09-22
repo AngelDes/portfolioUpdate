@@ -569,3 +569,10 @@ table.nice-table td.cell-sub {
   font-size: 1rem;
 }
 .cs-close a.back-link:hover { color: #d8d3c0; }
+/* ---- Case study alternating sections: contained, no full-bleed math ---- */
+.cs-block:nth-child(even) {
+  background: var(--panel-bg);
+  border-radius: 20px;
+  padding-left: 32px;
+  padding-right: 32px;
+}

@@ -21,7 +21,7 @@
   <div class="cs-hero-inner">
     <div class="eyebrow">Cross-Project Expertise</div>
     <h1>Design Systems</h1>
-    <p class="dek">Two systems, two very different contexts — one built from scratch inside a startup's product team, the other developed for a consultancy and reused across multiple client engagements under the same organization.</p>
+    <p class="dek">Two systems, two different contexts: one built from scratch inside a startup's product team, the other developed for a consultancy and reused across multiple client engagements. Here's how I think about the difference.</p>
     <div class="meta-row">
       <div><strong>Scope</strong>3 products</div>
       <div><strong>Type</strong>In-house · Reused &amp; adapted</div>
@@ -33,14 +33,14 @@
 <main class="cs-main">
 
   <section class="cs-block">
-  <h2 class="cs-label">Why This Matters</h2>
-  <p>A design system isn't just a component library — it's a bet about how a product or organization will grow. I've built both kinds, in two very different settings: a system designed from zero for one startup's product, and a system designed for a consultancy, where it had to serve multiple separate client engagements rather than a single product roadmap.</p>
-</section>
+    <h2 class="cs-label">Why This Matters</h2>
+    <p>A design system isn't just a component library — it's a bet about how a product or organization will grow. The right bet depends entirely on context. A startup building its first real product needs something different from a consultancy serving multiple clients under one roof. I've built for both, and the two experiences taught me different lessons.</p>
+  </section>
 
   <section class="cs-block">
-    <h2 class="cs-label">System 1 — Lynit: Built In-House, From Scratch (Startup)</h2>
-<p>Lynit was a startup, and its own product — there was no existing component library to inherit, and no other team or client to coordinate with. I designed the system from the ground up using an atomic approach, defining tokens, base components, and composition patterns for a product still finding its shape.</p>
-    <p>I didn't maintain it alone. I brought a junior designer onto the system and mentored them through ownership of it — part of building not just a system, but a team capable of sustaining one.</p>
+    <h2 class="cs-label">System 1 — Built From Scratch (Startup Context)</h2>
+    <p>At Lynit, a startup, there was no existing component library to inherit — and no other team or client to coordinate around. That's the defining feature of this kind of system: it's built for one product's long-term evolution, with the freedom (and pressure) of starting from a blank page.</p>
+    <p>I designed the system using an atomic approach — tokens, base components, and composition patterns for a product still finding its shape. Just as important: I brought a junior designer onto the system and mentored them into owning its maintenance. A system only stays alive if someone other than its original architect can run it.</p>
     <div class="stat-grid">
       <div class="stat"><span class="num">From 0</span><span class="label">No prior system to inherit</span></div>
       <div class="stat"><span class="num">2</span><span class="label">Designers maintaining it (incl. 1 mentee)</span></div>
@@ -49,35 +49,35 @@
   </section>
 
   <section class="cs-block">
-    <h2 class="cs-label">System 2 — Polistat &amp; Mapeo de Decisiones: Shared Across Client Engagements</h2>
-<p>Polistat and Mapeo de Decisiones were two separate client projects delivered by the same organization — not a single product, but a consultancy serving multiple clients. Rather than building Mapeo's system from zero, I evolved Polistat's component library into its foundation, rebranding it for the new client and migrating the working files from Adobe XD to Sketch along the way.</p>
-    <p>This is the harder, less glamorous side of systems work: making a system portable enough to survive a rebrand and a tooling migration without losing consistency or quality along the way.</p>
+    <h2 class="cs-label">System 2 — Reused Across Client Engagements (Consultancy Context)</h2>
+    <p>Polistat and Mapeo de Decisiones were two separate client projects delivered by the same organization — a consultancy, not a single product team. That changes the design-system question entirely: instead of "how does this system grow with one product," the question becomes "how does this system survive being handed to a different client with different branding and different constraints."</p>
+    <p>Rather than building Mapeo's system from zero, I evolved Polistat's component library into its foundation — rebranded for the new client, and migrated the working files from Adobe XD to Sketch in the process. Less visible than a from-scratch build. Considerably more valuable at the organizational level, because it meant the second engagement didn't cost as much as the first.</p>
     <div class="stat-grid">
-      <div class="stat"><span class="num">2</span><span class="label">Client projects sharing one system</span></div>
+      <div class="stat"><span class="num">2</span><span class="label">Client engagements sharing one system</span></div>
       <div class="stat"><span class="num">1</span><span class="label">Full rebrand executed on the shared system</span></div>
       <div class="stat"><span class="num">XD → Sketch</span><span class="label">Tooling migration handled alongside reuse</span></div>
     </div>
   </section>
 
   <section class="cs-block">
-    <h2 class="cs-label">What It Solved</h2>
+    <h2 class="cs-label">What Each Approach Actually Solves</h2>
     <ul>
-      <li><strong>Consistency across engagements</strong> — Polistat and Mapeo were different clients served by the same organization; a shared, adaptable system meant each engagement didn't start from a blank slate or drift into inconsistent patterns</li>
-      <li><strong>Development speed</strong> — shared, documented components meant engineering wasn't rebuilding the same UI decisions on every new feature or client engagement</li>
-      <li><strong>Reduced UI/UX debt</strong> — a governed system meant fewer one-off components accumulating over time, and a clearer path to fixing inconsistencies at the source rather than screen by screen</li>
+      <li><strong>Consistency across engagements</strong> — for the consultancy work specifically, a shared, adaptable system meant Mapeo didn't start from a blank slate or drift into inconsistent patterns against Polistat</li>
+      <li><strong>Development speed</strong> — in both contexts, a documented system meant engineering wasn't re-deciding the same UI questions on every new feature or client engagement</li>
+      <li><strong>Reduced UI/UX debt</strong> — governance (in the startup case) and disciplined reuse (in the consultancy case) both prevent the same failure mode: one-off components accumulating until nobody can say what the "real" pattern is anymore</li>
     </ul>
   </section>
 
   <section class="cs-block">
     <h2 class="cs-label">System Anatomy</h2>
-    <p>Add an annotated component diagram here — tokens, base components, and composition patterns, similar to how the systems were actually documented for engineering handoff.</p>
+    <p>Below: an annotated breakdown of tokens, base components, and composition patterns — documented roughly the way it was handed to engineering for implementation.</p>
     <div class="cs-visual" style="background: linear-gradient(135deg,#2f5c4a,#4c8a6f);">Add annotated component diagram here</div>
   </section>
 
 </main>
 
 <section class="cs-close">
-  <a class="back-link" href="index.html">← Back to all work</a>
+  <a class="back-link" href="index.html">← Back to home</a>
 </section>
 <footer class="site-footer">© 2026 Luis Angel Arreguín</footer>
 
