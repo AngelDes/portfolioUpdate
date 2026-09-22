@@ -520,63 +520,45 @@ table.nice-table td.cell-sub {
 .proof-strip .proof-item.is-case .label { font-weight: 600; }
 
 /* ---- Featured card visual: texture + index number, not a flat block ---- */
+.featured-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  text-decoration: none;
+  color: var(--ink);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--card-bg);
+  box-shadow: 0 4px 16px rgba(28,26,23,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.featured-card:hover { transform: translateY(-5px); box-shadow: 0 20px 44px rgba(28,26,23,0.14); }
+
+.featured-card .info {
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.featured-card p { margin: 0 0 22px; font-size: 1rem; color: #3a352e; max-width: 480px; }
+
 .featured-card .visual {
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   padding: 28px;
 }
-.featured-card .visual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(140% 120% at 15% -10%, rgba(255,255,255,0.32), transparent 50%),
-    radial-gradient(100% 100% at 100% 110%, rgba(0,0,0,0.28), transparent 55%);
-  pointer-events: none;
-}
-.featured-card .visual.pattern-lines::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.14;
-  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 22px);
-  pointer-events: none;
-}
-.featured-card .visual.pattern-grid::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.16;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
-  background-size: 26px 26px;
-  pointer-events: none;
-}
 .featured-card .visual .index-num {
-  position: absolute;
-  top: 20px; right: 24px;
-  font-family: 'Fraunces', serif;
-  font-size: 3.4rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.22);
-  line-height: 1;
-  z-index: 1;
+  position: static;
+  font-size: 2.8rem;
 }
 .featured-card .visual .placeholder {
   position: relative;
   z-index: 1;
-  color: rgba(255,255,255,0.9);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 6px 12px;
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 999px;
-  text-align: left;
 }
 /* ---- Case study pages: rhythm + real closing band ---- */
 .cs-block:nth-child(even) { background: var(--panel-bg); margin-left: calc(-1 * (50vw - 50%)); margin-right: calc(-1 * (50vw - 50%)); padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%); }
