@@ -473,28 +473,34 @@ table.nice-table td.cell-sub {
 .band-dark .contact-links a { color: #f4f0e4; }
 .band-dark .contact-links a:hover { color: #d8d3c0; }
 
-/* ---- Unified resume card (replaces 3 stacked cards) ---- */
+/* ---- Unified resume card, Dario-style: one thin rule separates zones ---- */
 .resume-card {
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--card-bg);
-  overflow: hidden;
+  padding: 40px;
 }
-.resume-card .r-block { padding: 36px; }
-.resume-card .r-block + .r-block { border-top: 1px solid var(--line); }
 .resume-card .kicker {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 20px;
+}
+.resume-card .r-block { padding: 0; }
+.resume-card .r-block + .r-block {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
 }
 .resume-card .r-intro {
   color: var(--muted);
   font-size: 0.92rem;
-  margin: 0 0 20px;
+  margin: -8px 0 20px;
 }
+.resume-card table.nice-table td,
+.resume-card table.nice-table th { padding-left: 0; padding-right: 12px; }
 
 /* ---- Tool pills grouped by category, not one flat cloud ---- */
 .tool-group { margin-bottom: 16px; }
