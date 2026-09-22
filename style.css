@@ -454,21 +454,14 @@ table.nice-table td.cell-sub {
   color: var(--accent);
 }
 /* ---- Full-bleed alternating section bands ---- */
-.band-alt {
-  background: var(--panel-bg);
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
-}
-.band-dark {
-  background: var(--ink);
-  color: #f4f0e4;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
-}
+/* ---- Full-bleed bands: correct approach (no vw-calc, no nesting issues) ---- */
+.full-bleed { padding: 96px 0; border-top: 1px solid var(--line); }
+.full-bleed-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.band-alt { background: var(--panel-bg); }
+.band-dark { background: var(--ink); color: #f4f0e4; padding: 60px 0; }
+.band-dark .section-label { color: rgba(244,240,228,0.6); }
+.band-dark .contact-links a { color: #f4f0e4; }
+.band-dark .contact-links a:hover { color: #d8d3c0; }
 .band-dark .section-label { color: rgba(244,240,228,0.6); }
 .band-dark .contact-links a { color: #f4f0e4; }
 .band-dark .contact-links a:hover { color: #d8d3c0; }
