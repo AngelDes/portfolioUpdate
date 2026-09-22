@@ -453,3 +453,138 @@ table.nice-table td.cell-sub {
   background: var(--panel-bg);
   color: var(--accent);
 }
+/* ---- Full-bleed alternating section bands ---- */
+.band-alt {
+  background: var(--panel-bg);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.band-dark {
+  background: var(--ink);
+  color: #f4f0e4;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.band-dark .section-label { color: rgba(244,240,228,0.6); }
+.band-dark .contact-links a { color: #f4f0e4; }
+.band-dark .contact-links a:hover { color: #d8d3c0; }
+
+/* ---- Unified resume card (replaces 3 stacked cards) ---- */
+.resume-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--card-bg);
+  overflow: hidden;
+}
+.resume-card .r-block { padding: 36px; }
+.resume-card .r-block + .r-block { border-top: 1px solid var(--line); }
+.resume-card .kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.resume-card .r-intro {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0 0 20px;
+}
+
+/* ---- Tool pills grouped by category, not one flat cloud ---- */
+.tool-group { margin-bottom: 16px; }
+.tool-group:last-child { margin-bottom: 0; }
+.tool-group .tg-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.tool-pills.ai span { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ---- Proof strip: differentiate constant facts vs case-study stats ---- */
+.proof-strip .proof-item.is-case .num { color: var(--ink); }
+.proof-strip .proof-item.is-case .label { font-weight: 600; }
+
+/* ---- Featured card visual: texture + index number, not a flat block ---- */
+.featured-card .visual {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px;
+}
+.featured-card .visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(140% 120% at 15% -10%, rgba(255,255,255,0.32), transparent 50%),
+    radial-gradient(100% 100% at 100% 110%, rgba(0,0,0,0.28), transparent 55%);
+  pointer-events: none;
+}
+.featured-card .visual.pattern-lines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 1px, transparent 1px, transparent 22px);
+  pointer-events: none;
+}
+.featured-card .visual.pattern-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+}
+.featured-card .visual .index-num {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-family: 'Fraunces', serif;
+  font-size: 3.4rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.22);
+  line-height: 1;
+  z-index: 1;
+}
+.featured-card .visual .placeholder {
+  position: relative;
+  z-index: 1;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 999px;
+  text-align: left;
+}
+/* ---- Case study pages: rhythm + real closing band ---- */
+.cs-block:nth-child(even) { background: var(--panel-bg); margin-left: calc(-1 * (50vw - 50%)); margin-right: calc(-1 * (50vw - 50%)); padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%); }
+
+.cs-close {
+  background: var(--ink);
+  color: #f4f0e4;
+  padding: 60px 24px;
+  text-align: center;
+}
+.cs-close a.back-link {
+  color: #f4f0e4;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.cs-close a.back-link:hover { color: #d8d3c0; }
