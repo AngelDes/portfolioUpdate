@@ -245,10 +245,37 @@ section.page-section h2.section-label {
 .cs-hero .meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
 .cs-hero .meta-row div strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.75; margin-bottom: 2px; }
 
-.cs-main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px 120px; }
+/* ---- Case study body: lighter background for readability ---- */
+.cs-main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px 120px;
+  background: var(--card-bg);
+}
 .cs-block { padding: 52px 0; border-top: 1px solid var(--line); }
 .cs-block:first-child { border-top: none; }
-.cs-block h2.cs-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; margin: 0 0 18px; }
+
+/* Stronger, easier-to-scan headings */
+.cs-block h2.cs-label {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+.cs-block h2.cs-label::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
 .cs-block h3.cs-sub { font-size: 1.05rem; margin: 24px 0 8px; }
 .cs-block h3.cs-sub:first-of-type { margin-top: 0; }
 .cs-block p { font-size: 1rem; margin: 0 0 14px; max-width: 680px; }
@@ -285,13 +312,6 @@ table.exp th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.
 .contact-links { display: flex; gap: 22px; font-size: 0.95rem; flex-wrap: wrap; }
 footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px; font-size: 0.8rem; color: var(--muted); }
 
-@media (max-width: 680px) {
-  .featured-grid, .work-grid, .two-col, .proof-strip { grid-template-columns: 1fr; }
-  .site-header { border-radius: 20px; margin: 12px 16px 0; top: 12px; }
-  .hero-headline { font-size: 2.15rem; }
-  .cs-hero { padding: 84px 20px 40px; }
-  section.page-section { padding: 64px 0; }
-}
 /* ---- Professional Profile card ---- */
 .profile-card {
   border: 1px solid var(--line);
@@ -364,5 +384,10 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
 }
 
 @media (max-width: 680px) {
+  .featured-grid, .work-grid, .two-col, .proof-strip { grid-template-columns: 1fr; }
+  .site-header { border-radius: 20px; margin: 12px 16px 0; top: 12px; }
+  .hero-headline { font-size: 2.15rem; }
+  .cs-hero { padding: 84px 20px 40px; }
+  section.page-section { padding: 64px 0; }
   .profile-facts, .profile-columns { grid-template-columns: 1fr; }
 }
