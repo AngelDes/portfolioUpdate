@@ -18,7 +18,7 @@
 /* =============================================================
    1. FONTS & VARIABLES
    ============================================================= */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
 
 :root {
   --ink: #18181b;
@@ -99,7 +99,16 @@ h2.section-label {
 .site-header nav a:not(.nav-cta) { color: var(--ink); }
 .site-header nav a:not(.nav-cta):hover { color: var(--accent); }
 
-.nav-cta { background: var(--accent); color: var(--ink) !important; }
+.nav-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--ink) !important;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
 .nav-cta:hover { background: var(--accent-dark); color: #fff !important; }
 
 
@@ -661,4 +670,22 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   height: 6px;
   border-radius: 50%;
   background: var(--accent-dark);
+}
+
+/* ---- Monospace personality layer: all small-caps utility text ---- */
+h2.section-label,
+.eyebrow-tag,
+.cs-hero .eyebrow,
+.chip, .expertise-strip .chip,
+.work-card .tags,
+.kicker, .resume-card .kicker,
+.tg-label, .col-title, .fact-label,
+table.nice-table th,
+.type-badge,
+.status-tag,
+.cs-hero .meta-row div strong,
+.process-steps .step strong {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
 }
