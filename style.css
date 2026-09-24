@@ -338,3 +338,249 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 }
 .work-card .cover::before {
   content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 100% at 10% 0%, rgba(255,255,255,0.22), transparent 55%);
+  pointer-events: none;
+}
+.work-card .cover span { position: relative; z-index: 1; }
+.work-card .body { padding: 20px; }
+.work-card .tags { font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
+.work-card p { margin: 0; font-size: 0.9rem; color: #443f38; }
+
+
+/* =============================================================
+   9. CASE STUDY PAGES (hero, alternating blocks, stats, process)
+   ============================================================= */
+.cs-hero { padding: 110px 24px 60px; color: #fff; }
+.cs-hero-inner { max-width: var(--maxw); margin: 0 auto; }
+.cs-hero .eyebrow { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.88; font-weight: 700; margin-bottom: 12px; }
+.cs-hero h1 { font-size: 2.5rem; margin: 0 0 14px; letter-spacing: -0.02em; font-weight: 500; }
+.cs-hero p.dek { font-size: 1.12rem; max-width: 600px; opacity: 0.95; margin: 0 0 24px; }
+.cs-hero .meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
+.cs-hero .meta-row div strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.75; margin-bottom: 2px; }
+
+.cs-main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px 120px; }
+
+.cs-block { padding: 52px 0; border-top: 1px solid var(--line); }
+.cs-block:first-child { border-top: none; }
+
+/* Alternating background rhythm — contained panels, no viewport
+   math, so there's no risk of the full-bleed nesting bug */
+.cs-block:nth-child(even) {
+  background: var(--panel-bg);
+  border-radius: 20px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.cs-block h2.cs-label {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+.cs-block h2.cs-label::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 12px;
+  vertical-align: middle;
+}
+.cs-block h3.cs-sub { font-size: 1.05rem; margin: 24px 0 8px; }
+.cs-block h3.cs-sub:first-of-type { margin-top: 0; }
+.cs-block p { font-size: 1rem; margin: 0 0 14px; max-width: 680px; }
+.cs-block ul { padding-left: 20px; font-size: 0.96rem; }
+.cs-block li { margin-bottom: 8px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 20px; }
+.stat-grid .stat { background: var(--card-bg); border-radius: 12px; padding: 20px; }
+.stat-grid .stat .num { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 600; color: var(--accent); display: block; }
+.stat-grid .stat .label { font-size: 0.85rem; color: var(--muted); }
+
+.process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; }
+.process-steps .step strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 6px; }
+.process-steps .step { font-size: 0.9rem; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.cs-visual { border-radius: 14px; min-height: 220px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; text-align: center; padding: 20px; margin: 10px 0 0; }
+
+.cs-close {
+  background: var(--ink);
+  color: #f4f0e4;
+  padding: 60px 24px;
+  text-align: center;
+}
+.cs-close a.back-link {
+  color: #f4f0e4;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.cs-close a.back-link:hover { color: #d8d3c0; }
+
+
+/* =============================================================
+   10. RESUME CARD (profile, experience/education tables, tool pills)
+   ============================================================= */
+.resume-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--card-bg);
+  padding: 40px;
+}
+.resume-card .kicker {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.resume-card .r-block { padding: 0; }
+.resume-card .r-block + .r-block {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.resume-card .r-intro {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: -8px 0 20px;
+}
+
+.profile-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.profile-facts .fact-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.profile-facts .fact-value { font-weight: 700; font-size: 1.02rem; }
+
+.profile-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.profile-columns .col-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.profile-columns ul { list-style: none; margin: 0; padding: 0; }
+.profile-columns li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  margin-bottom: 12px;
+}
+.profile-columns li .icon-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.tool-group { margin-bottom: 16px; }
+.tool-group:last-child { margin-bottom: 0; }
+.tool-group .tg-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.tool-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.tool-pills span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--panel-bg);
+  border: 1px solid var(--line);
+}
+.tool-pills.ai span { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+table.nice-table { width: 100%; border-collapse: collapse; }
+table.nice-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 700;
+  padding: 0 12px 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+table.nice-table td {
+  padding: 16px 12px 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.94rem;
+  vertical-align: top;
+}
+table.nice-table tr:last-child td { border-bottom: none; }
+table.nice-table tr:hover td { background: var(--panel-bg); }
+table.nice-table td.cell-primary { font-weight: 700; }
+table.nice-table td.cell-date { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+
+/* Unscoped, tag+class selector — deliberately simple so it can't
+   be broken by ancestor-chain assumptions like the previous
+   td.cell-sub rule was */
+span.cell-sub {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.type-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--panel-bg);
+  color: var(--accent);
+}
+
+
+/* =============================================================
+   11. CONTACT & FOOTER
+   ============================================================= */
+.contact-links { display: flex; gap: 22px; font-size: 0.95rem; flex-wrap: wrap; }
+footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px; font-size: 0.8rem; color: var(--muted); }
+
+
+/* =============================================================
+   12. RESPONSIVE
+   ============================================================= */
+@media (max-width: 680px) {
+  .featured-card, .work-grid, .two-col, .proof-strip,
+  .profile-facts, .profile-columns { grid-template-columns: 1fr; }
+  .site-header { border-radius: 20px; margin: 12px 16px 0; top: 12px; }
+  .hero-headline { font-size: 2.15rem; }
+  .cs-hero { padding: 84px 20px 40px; }
+  section.page-section, .full-bleed { padding: 64px 0; }
+}
