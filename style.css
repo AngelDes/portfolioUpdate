@@ -21,14 +21,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --ink: #1f241a;
-  --muted: #6b7059;
-  --bg: #eef0df;
-  --card-bg: #fdfdf5;
-  --panel-bg: #e4e7cf;
-  --line: #d7dabf;
-  --accent: #55642f;
-  --accent-dark: #414d24;
+  --ink: #1a1f18;
+  --muted: #667066;
+  --bg: #f1f8ec;
+  --card-bg: #ffffff;
+  --panel-bg: #e6f2df;
+  --line: rgba(26,31,24,0.09);
+  --accent: #22c55e;
+  --accent-dark: #16a34a;
+  --radius: 8px;
   --maxw: 920px;
 }
 
@@ -53,8 +54,7 @@ h1, .hero-headline, .featured-card h3, .work-card .cover, .cs-hero h1,
 }
 
 /* Section labels — unscoped so they work inside .page-section AND
-   inside full-bleed bands like Contact (fixes the "weak Contact
-   heading" bug: this rule used to be scoped to .page-section only) */
+   inside full-bleed bands like Contact */
 h2.section-label {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -86,14 +86,12 @@ h2.section-label {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  /* Raised from 0.78 to 0.92 opacity so scrolling text doesn't
-     show through the nav pill while it's sticky */
-  background: rgba(253,253,245,0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--line);
   border-radius: 999px;
-  box-shadow: 0 6px 24px rgba(28,26,23,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 .site-header .logo { font-weight: 700; text-decoration: none; font-size: 1rem; }
 .site-header nav { display: flex; align-items: center; gap: 22px; font-size: 0.9rem; }
@@ -114,7 +112,23 @@ h2.section-label {
 /* =============================================================
    4. HERO
    ============================================================= */
-.intro { max-width: var(--maxw); margin: 0 auto; padding: 72px 24px 48px; }
+.intro {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 72px 24px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.intro > * { position: relative; z-index: 1; }
 
 .eyebrow-tag {
   font-size: 0.82rem;
@@ -131,8 +145,25 @@ h2.section-label {
   letter-spacing: -0.01em;
   margin: 0 0 22px;
 }
-.hero-headline .accent-text { color: var(--accent); font-style: italic; }
-.hero-sub { font-size: 1.12rem; color: #3a352e; max-width: 560px; margin: 0 0 34px; }
+.hero-headline .accent-text {
+  color: var(--accent);
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+.hero-headline .accent-text::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 4px;
+  bottom: -6px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 14 Q 30 4, 60 12 T 120 10 T 198 13' stroke='%2322c55e' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.55;
+}
+.hero-sub { font-size: 1.12rem; color: #3a3f38; max-width: 560px; margin: 0 0 34px; }
 
 .hero-cta-row { display: flex; gap: 14px; margin-bottom: 56px; flex-wrap: wrap; }
 .btn-primary, .btn-secondary {
@@ -145,7 +176,11 @@ h2.section-label {
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 .btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(85,100,47,0.28); }
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34,197,94,0.28);
+}
 .btn-secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
@@ -169,14 +204,12 @@ h2.section-label {
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--card-bg);
-  color: #3a352e;
+  color: #3a3f38;
 }
 
 
 /* =============================================================
    5. FULL-BLEED BANDS (Featured Case Studies, Contact)
-   These sections live OUTSIDE <main class="container"> in the HTML
-   so they can go edge-to-edge without fighting main's max-width.
    ============================================================= */
 .full-bleed { padding: 96px 0; border-top: 1px solid var(--line); }
 .full-bleed-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
@@ -189,7 +222,7 @@ h2.section-label {
   padding: 60px 0;
 }
 .band-dark .contact-links a { color: #f4f0e4; }
-.band-dark .contact-links a:hover { color: #d8d3c0; }
+.band-dark .contact-links a:hover { color: #8fe0ac; }
 
 
 /* =============================================================
@@ -200,8 +233,6 @@ main.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px 120px; 
 section.page-section { padding: 96px 0; border-top: 1px solid var(--line); }
 section.page-section:first-of-type { padding-top: 40px; }
 
-/* Removes excess dead air between the last section and the
-   full-bleed Contact band that follows main.container */
 main.container > section.page-section:last-child { padding-bottom: 24px; }
 
 
@@ -215,14 +246,14 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   grid-template-columns: 1.1fr 1fr;
   text-decoration: none;
   color: var(--ink);
-  border-radius: 24px;
+  border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--card-bg);
-  box-shadow: 0 4px 16px rgba(28,26,23,0.05);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.featured-card:hover { transform: translateY(-5px); box-shadow: 0 20px 44px rgba(28,26,23,0.14); }
+.featured-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
 
 .featured-card .info {
   padding: 36px 40px;
@@ -241,13 +272,10 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   border: 1px solid var(--line);
 }
 .featured-card h3 { margin: 0 0 14px; font-size: 1.8rem; line-height: 1.1; }
-.featured-card p { margin: 0 0 22px; font-size: 1rem; color: #3a352e; max-width: 480px; }
-.featured-card p strong { color: var(--accent); }
-.featured-card .cta { font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+.featured-card p { margin: 0 0 22px; font-size: 1rem; color: #3a3f38; max-width: 480px; }
+.featured-card p strong { color: var(--accent-dark); }
+.featured-card .cta { font-size: 0.88rem; font-weight: 700; color: var(--accent-dark); }
 
-/* Visual panel: centered stack (index number + pill), no fixed
-   height — sizes naturally instead of overstretching to match
-   however tall the text column happens to be */
 .featured-card .visual {
   position: relative;
   overflow: hidden;
@@ -317,14 +345,14 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   display: block;
   text-decoration: none;
   color: var(--ink);
-  border-radius: 20px;
+  border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--card-bg);
-  box-shadow: 0 3px 12px rgba(28,26,23,0.04);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
-.work-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(28,26,23,0.1); }
+.work-card:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.05); }
 .work-card .cover {
   position: relative;
   height: 110px;
@@ -346,7 +374,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .work-card .cover span { position: relative; z-index: 1; }
 .work-card .body { padding: 20px; }
 .work-card .tags { font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
-.work-card p { margin: 0; font-size: 0.9rem; color: #443f38; }
+.work-card p { margin: 0; font-size: 0.9rem; color: #40453e; }
 
 
 /* =============================================================
@@ -365,11 +393,9 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .cs-block { padding: 52px 0; border-top: 1px solid var(--line); }
 .cs-block:first-child { border-top: none; }
 
-/* Alternating background rhythm — contained panels, no viewport
-   math, so there's no risk of the full-bleed nesting bug */
 .cs-block:nth-child(even) {
   background: var(--panel-bg);
-  border-radius: 20px;
+  border-radius: var(--radius);
   padding-left: 32px;
   padding-right: 32px;
 }
@@ -400,8 +426,8 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .cs-block li { margin-bottom: 8px; }
 
 .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 20px; }
-.stat-grid .stat { background: var(--card-bg); border-radius: 12px; padding: 20px; }
-.stat-grid .stat .num { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 600; color: var(--accent); display: block; }
+.stat-grid .stat { background: var(--card-bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.stat-grid .stat .num { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 600; color: var(--accent-dark); display: block; }
 .stat-grid .stat .label { font-size: 0.85rem; color: var(--muted); }
 
 .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; }
@@ -409,7 +435,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .process-steps .step { font-size: 0.9rem; }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.cs-visual { border-radius: 14px; min-height: 220px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; text-align: center; padding: 20px; margin: 10px 0 0; }
+.cs-visual { border-radius: var(--radius); min-height: 220px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; text-align: center; padding: 20px; margin: 10px 0 0; }
 
 .cs-close {
   background: var(--ink);
@@ -424,7 +450,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   font-size: 1rem;
   text-decoration: none;
 }
-.cs-close a.back-link:hover { color: #d8d3c0; }
+.cs-close a.back-link:hover { color: #8fe0ac; }
 
 
 /* =============================================================
@@ -432,7 +458,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
    ============================================================= */
 .resume-card {
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: var(--radius);
   background: var(--card-bg);
   padding: 40px;
 }
@@ -518,7 +544,9 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   background: var(--panel-bg);
   border: 1px solid var(--line);
 }
-.tool-pills.ai span { background: var(--accent); color: #fff; border-color: var(--accent); }
+/* Darker shade than --accent for AA contrast: white text on the
+   bright #22c55e alone falls short of AA; --accent-dark passes. */
+.tool-pills.ai span { background: var(--accent-dark); color: #fff; border-color: var(--accent-dark); }
 
 table.nice-table { width: 100%; border-collapse: collapse; }
 table.nice-table th {
@@ -542,9 +570,6 @@ table.nice-table tr:hover td { background: var(--panel-bg); }
 table.nice-table td.cell-primary { font-weight: 700; }
 table.nice-table td.cell-date { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
 
-/* Unscoped, tag+class selector — deliberately simple so it can't
-   be broken by ancestor-chain assumptions like the previous
-   td.cell-sub rule was */
 span.cell-sub {
   display: block;
   color: var(--muted);
@@ -562,7 +587,7 @@ span.cell-sub {
   padding: 3px 9px;
   border-radius: 999px;
   background: var(--panel-bg);
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 
 
@@ -583,22 +608,4 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   .hero-headline { font-size: 2.15rem; }
   .cs-hero { padding: 84px 20px 40px; }
   section.page-section, .full-bleed { padding: 64px 0; }
-}
-
-/* ---- Signature accent underline ---- */
-.hero-headline .accent-text {
-  position: relative;
-  display: inline-block;
-}
-.hero-headline .accent-text::after {
-  content: "";
-  position: absolute;
-  left: 2px;
-  right: 4px;
-  bottom: -6px;
-  height: 12px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 14 Q 30 4, 60 12 T 120 10 T 198 13' stroke='%2355642f' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  opacity: 0.55;
 }
