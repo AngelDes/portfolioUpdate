@@ -27,8 +27,8 @@
   --card-bg: #ffffff;
   --panel-bg: #e6f2df;
   --line: rgba(26,31,24,0.09);
-  --accent: #22c55e;
-  --accent-dark: #16a34a;
+  --accent: #4ade80;
+  --accent-dark: #22c55e;  /* for hover states only — slightly deeper on interaction */
   --radius: 8px;
   --maxw: 920px;
 }
@@ -98,15 +98,9 @@ h2.section-label {
 .site-header nav a { text-decoration: none; }
 .site-header nav a:not(.nav-cta) { color: var(--ink); }
 .site-header nav a:not(.nav-cta):hover { color: var(--accent); }
-.nav-cta {
-  background: var(--accent);
-  color: #fff !important;
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  transition: background 0.15s ease;
-}
-.nav-cta:hover { background: var(--accent-dark); }
+
+.nav-cta { background: var(--accent); color: var(--ink) !important; }
+.nav-cta:hover { background: var(--accent-dark); color: #fff !important; }
 
 
 /* =============================================================
@@ -175,9 +169,10 @@ h2.section-label {
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
-.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary { background: var(--accent); color: var(--ink); }
 .btn-primary:hover {
   background: var(--accent-dark);
+  color: #fff;  /* accent-dark is deep enough for white to work on hover */
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(34,197,94,0.28);
 }
@@ -546,7 +541,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 }
 /* Darker shade than --accent for AA contrast: white text on the
    bright #22c55e alone falls short of AA; --accent-dark passes. */
-.tool-pills.ai span { background: var(--accent-dark); color: #fff; border-color: var(--accent-dark); }
+.tool-pills.ai span { background: var(--accent); color: var(--ink); border-color: var(--accent); }
 
 table.nice-table { width: 100%; border-collapse: collapse; }
 table.nice-table th {
