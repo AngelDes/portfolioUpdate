@@ -584,3 +584,21 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   .cs-hero { padding: 84px 20px 40px; }
   section.page-section, .full-bleed { padding: 64px 0; }
 }
+
+/* ---- Signature accent underline ---- */
+.hero-headline .accent-text {
+  position: relative;
+  display: inline-block;
+}
+.hero-headline .accent-text::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 4px;
+  bottom: -6px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M2 14 Q 30 4, 60 12 T 120 10 T 198 13' stroke='%2355642f' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.55;
+}
