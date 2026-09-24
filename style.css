@@ -604,3 +604,61 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   .cs-hero { padding: 84px 20px 40px; }
   section.page-section, .full-bleed { padding: 64px 0; }
 }
+
+/* ---- Table wrapper: boxed container + shaded header, Firecrawl-style ---- */
+.table-wrap {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.table-wrap table.nice-table { width: 100%; border-collapse: collapse; }
+.table-wrap table.nice-table th {
+  background: var(--panel-bg);
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line);
+}
+.table-wrap table.nice-table td {
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.94rem;
+  vertical-align: top;
+}
+.table-wrap table.nice-table tr:last-child td { border-bottom: none; }
+.table-wrap table.nice-table tr:hover td { background: var(--panel-bg); }
+.table-wrap table.nice-table td.cell-primary { font-weight: 700; }
+
+/* Monospace treatment for data-like values — dates read like the
+   TIME column in the reference table */
+.table-wrap table.nice-table td.cell-date {
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Status tag for the current role — echoes the green "COMPLETED"
+   status text in the reference table */
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-dark);
+}
+.status-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-dark);
+}
