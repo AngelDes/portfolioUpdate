@@ -689,3 +689,23 @@ table.nice-table th,
   letter-spacing: 0.02em;
 }
 }
+
+/* ---- Compact, modern tags (tool pills, chips, badges) ---- */
+.tool-pills span,
+.chip, .expertise-strip .chip, .featured-card .chip,
+.type-badge {
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tool-pills.ai span {
+  background: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.status-tag {
+  font-size: 0.68rem;
+}
