@@ -694,3 +694,92 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   .process-visual .visual-row { grid-template-columns: 1fr; }
   .process-visual .visual-arrow { transform: rotate(90deg); margin: 0 auto; }
 }
+
+/* =============================================================
+   15. FOOTER (expanded — headline, 3-column layout, elsewhere cards)
+   ============================================================= */
+.footer-hero { margin-bottom: 56px; }
+.footer-hero h2.section-label { margin-bottom: 16px; }
+.footer-hero .footer-headline {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #f4f0e4;
+  margin: 0 0 12px;
+}
+.footer-hero .footer-sub {
+  font-size: 1.05rem;
+  color: rgba(244,240,228,0.75);
+  margin: 0 0 28px;
+  max-width: 460px;
+}
+.footer-hero .btn-contact {
+  display: inline-block;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(244,240,228,0.3);
+  color: #f4f0e4;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.footer-hero .btn-contact:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 40px;
+}
+.footer-col h4 {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(244,240,228,0.5);
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+.footer-col ul { list-style: none; margin: 0; padding: 0; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  color: #f4f0e4;
+  text-decoration: none;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+}
+.footer-col a:hover { opacity: 1; color: var(--accent); }
+
+.elsewhere-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  background: rgba(244,240,228,0.06);
+  border: 1px solid rgba(244,240,228,0.12);
+  text-decoration: none;
+  color: #f4f0e4;
+  margin-bottom: 10px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.elsewhere-card:hover { background: rgba(244,240,228,0.1); border-color: rgba(244,240,228,0.24); }
+.elsewhere-card .ec-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(244,240,228,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.elsewhere-card .ec-icon svg { width: 18px; height: 18px; }
+.elsewhere-card .ec-label { font-weight: 600; font-size: 0.95rem; flex: 1; }
+.elsewhere-card .ec-arrow { opacity: 0.6; }
+
+@media (max-width: 780px) {
+  .footer-columns { grid-template-columns: 1fr; gap: 32px; }
+}
