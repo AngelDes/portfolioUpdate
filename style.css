@@ -12,7 +12,7 @@
    10. Resume Card (profile, tables, tool pills, tags)
    11. Table Wrapper (boxed tables, status tag)
    12. Process Visual (screenshot filmstrip + arrows)
-   13. Contact & Footer
+   13. Footer (expanded — headline, 3-column layout, elsewhere cards)
    14. Responsive
    ============================================================= */
 
@@ -56,8 +56,6 @@ h1, .hero-headline, .featured-card h3, .work-card .cover, .cs-hero h1,
   font-family: 'Fraunces', Georgia, serif;
 }
 
-/* Section labels — unscoped so they work inside .page-section AND
-   inside full-bleed bands like Contact */
 h2.section-label {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -68,8 +66,6 @@ h2.section-label {
 }
 .band-dark h2.section-label { color: rgba(244,240,228,0.6); }
 
-/* Monospace utility-label layer: every small-caps structural label
-   site-wide, in one place so there's a single source of truth */
 h2.section-label,
 .eyebrow-tag,
 .cs-hero .eyebrow,
@@ -86,8 +82,6 @@ table.nice-table th,
   letter-spacing: 0.02em;
 }
 
-/* Anchor targets: prevents the sticky nav from covering section
-   titles when jumping via #work / #resume / #contact links */
 #work, #resume, #contact { scroll-margin-top: 100px; }
 
 
@@ -235,8 +229,6 @@ table.nice-table th,
   color: #f4f0e4;
   padding: 60px 0;
 }
-.band-dark .contact-links a { color: #f4f0e4; }
-.band-dark .contact-links a:hover { color: #8fe0ac; }
 
 
 /* =============================================================
@@ -465,7 +457,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card-bg);
-  padding: 40px;
+  padding: 32px;
 }
 .resume-card .kicker {
   font-size: 0.72rem;
@@ -489,7 +481,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .profile-facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 .profile-facts .fact-label {
   font-size: 0.72rem;
@@ -497,7 +489,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   color: var(--muted);
   margin-bottom: 4px;
 }
-.profile-facts .fact-value { font-weight: 700; font-size: 1.02rem; }
+.profile-facts .fact-value { font-weight: 700; font-size: 0.95rem; }
 
 .profile-columns {
   display: grid;
@@ -505,47 +497,48 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   gap: 32px;
 }
 .profile-columns .col-title {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .profile-columns ul { list-style: none; margin: 0; padding: 0; }
 .profile-columns li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 0.92rem;
-  margin-bottom: 12px;
+  gap: 8px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin-bottom: 10px;
 }
 .profile-columns li .icon-dot {
-  width: 6px; height: 6px;
+  width: 5px; height: 5px;
   border-radius: 50%;
   background: var(--accent);
-  margin-top: 8px;
+  margin-top: 7px;
   flex-shrink: 0;
 }
 
-.tool-group { margin-bottom: 16px; }
+.tool-group { margin-bottom: 14px; }
 .tool-group:last-child { margin-bottom: 0; }
 .tool-group .tg-label {
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 700;
 }
 
 /* Single definition for every tag/pill/badge on the site — compact
    and squared (5px radius), monospace text via the Section 2 rule */
-.tool-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.tool-pills { display: flex; flex-wrap: wrap; gap: 6px; }
 .tool-pills span,
 .chip, .expertise-strip .chip, .featured-card .chip,
 .type-badge {
   font-weight: 600;
-  font-size: 0.74rem;
-  padding: 5px 10px;
+  font-size: 0.7rem;
+  padding: 4px 9px;
   border-radius: var(--tag-radius);
   background: var(--panel-bg);
   border: 1px solid var(--line);
@@ -602,7 +595,6 @@ span.cell-sub {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* Status tag for a "current" role — green dot + label */
 .status-tag {
   display: inline-flex;
   align-items: center;
@@ -674,30 +666,10 @@ span.cell-sub {
 
 
 /* =============================================================
-   13. CONTACT & FOOTER
+   13. FOOTER (expanded — headline, 3-column layout, elsewhere cards)
    ============================================================= */
-.contact-links { display: flex; gap: 22px; font-size: 0.95rem; flex-wrap: wrap; }
 footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px; font-size: 0.8rem; color: var(--muted); }
 
-
-/* =============================================================
-   14. RESPONSIVE
-   ============================================================= */
-@media (max-width: 680px) {
-  .featured-card, .work-grid, .two-col, .proof-strip,
-  .profile-facts, .profile-columns { grid-template-columns: 1fr; }
-  .site-header { border-radius: 20px; margin: 12px 16px 0; top: 12px; }
-  .hero-headline { font-size: 2.15rem; }
-  .cs-hero { padding: 84px 20px 40px; }
-  section.page-section, .full-bleed { padding: 64px 0; }
-  .process-visual .steps-row { grid-template-columns: repeat(2, 1fr); }
-  .process-visual .visual-row { grid-template-columns: 1fr; }
-  .process-visual .visual-arrow { transform: rotate(90deg); margin: 0 auto; }
-}
-
-/* =============================================================
-   15. FOOTER (expanded — headline, 3-column layout, elsewhere cards)
-   ============================================================= */
 .footer-hero { margin-bottom: 56px; }
 .footer-hero h2.section-label { margin-bottom: 16px; }
 .footer-hero .footer-headline {
@@ -780,6 +752,19 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
 .elsewhere-card .ec-label { font-weight: 600; font-size: 0.95rem; flex: 1; }
 .elsewhere-card .ec-arrow { opacity: 0.6; }
 
-@media (max-width: 780px) {
+
+/* =============================================================
+   14. RESPONSIVE
+   ============================================================= */
+@media (max-width: 680px) {
+  .featured-card, .work-grid, .two-col, .proof-strip,
+  .profile-facts, .profile-columns { grid-template-columns: 1fr; }
+  .site-header { border-radius: 20px; margin: 12px 16px 0; top: 12px; }
+  .hero-headline { font-size: 2.15rem; }
+  .cs-hero { padding: 84px 20px 40px; }
+  section.page-section, .full-bleed { padding: 64px 0; }
+  .process-visual .steps-row { grid-template-columns: repeat(2, 1fr); }
+  .process-visual .visual-row { grid-template-columns: 1fr; }
+  .process-visual .visual-arrow { transform: rotate(90deg); margin: 0 auto; }
   .footer-columns { grid-template-columns: 1fr; gap: 32px; }
 }
