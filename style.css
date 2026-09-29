@@ -1,17 +1,19 @@
 /* =============================================================
    TABLE OF CONTENTS
    1.  Fonts & Variables
-   2.  Base / Reset
+   2.  Base / Reset (incl. monospace utility-label layer)
    3.  Navigation
    4.  Hero
    5.  Full-Bleed Bands (Featured Case Studies, Contact)
    6.  Page Sections (generic wrapper + labels)
    7.  Featured Cards
    8.  Work Cards ("More Work" grid)
-   9.  Case Study Pages (hero, blocks, stats, process)
-   10. Resume Card (profile, tables, tool pills)
-   11. Contact & Footer
-   12. Responsive
+   9.  Case Study Pages (hero, blocks, stats, process steps)
+   10. Resume Card (profile, tables, tool pills, tags)
+   11. Table Wrapper (boxed tables, status tag)
+   12. Process Visual (screenshot filmstrip + arrows)
+   13. Contact & Footer
+   14. Responsive
    ============================================================= */
 
 
@@ -30,6 +32,7 @@
   --accent: #4ade80;
   --accent-dark: #22c55e;
   --radius: 8px;
+  --tag-radius: 5px;
   --maxw: 920px;
 }
 
@@ -61,10 +64,27 @@ h2.section-label {
   letter-spacing: 0.08em;
   color: var(--muted);
   margin: 0 0 32px;
-  font-family: 'Inter', sans-serif;
   font-weight: 700;
 }
 .band-dark h2.section-label { color: rgba(244,240,228,0.6); }
+
+/* Monospace utility-label layer: every small-caps structural label
+   site-wide, in one place so there's a single source of truth */
+h2.section-label,
+.eyebrow-tag,
+.cs-hero .eyebrow,
+.chip, .expertise-strip .chip,
+.work-card .tags,
+.kicker, .resume-card .kicker,
+.tg-label, .col-title, .fact-label,
+table.nice-table th,
+.type-badge,
+.status-tag,
+.cs-hero .meta-row div strong,
+.process-steps .step strong {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
 
 /* Anchor targets: prevents the sticky nav from covering section
    titles when jumping via #work / #resume / #contact links */
@@ -136,7 +156,6 @@ h2.section-label {
 .eyebrow-tag {
   font-size: 0.82rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   color: var(--accent);
   font-weight: 700;
   margin: 0 0 14px;
@@ -181,7 +200,7 @@ h2.section-label {
 .btn-primary { background: var(--accent); color: var(--ink); }
 .btn-primary:hover {
   background: var(--accent-dark);
-  color: #fff;  /* accent-dark is deep enough for white to work on hover */
+  color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(34,197,94,0.28);
 }
@@ -201,15 +220,6 @@ h2.section-label {
 .proof-item .label { font-size: 0.82rem; color: var(--muted); }
 
 .expertise-strip { display: flex; gap: 10px; flex-wrap: wrap; }
-.expertise-strip .chip {
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--card-bg);
-  color: #3f3f42;
-}
 
 
 /* =============================================================
@@ -266,17 +276,8 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   justify-content: center;
 }
 .featured-card .chip-row { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
-.featured-card .chip {
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: var(--panel-bg);
-  color: var(--ink);
-  border: 1px solid var(--line);
-}
 .featured-card h3 { margin: 0 0 14px; font-size: 1.8rem; line-height: 1.1; }
-.featured-card p { margin: 0 0 22px; font-size: 1rem; color: #3f3f42; max-width: 480px}
+.featured-card p { margin: 0 0 22px; font-size: 1rem; color: #3f3f42; max-width: 480px; }
 .featured-card p strong { color: var(--accent-dark); }
 .featured-card .cta { font-size: 0.88rem; font-weight: 700; color: var(--accent-dark); }
 
@@ -382,15 +383,15 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 
 
 /* =============================================================
-   9. CASE STUDY PAGES (hero, alternating blocks, stats, process)
+   9. CASE STUDY PAGES (hero, alternating blocks, stats, process steps)
    ============================================================= */
 .cs-hero { padding: 110px 24px 60px; color: #fff; }
 .cs-hero-inner { max-width: var(--maxw); margin: 0 auto; }
-.cs-hero .eyebrow { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.88; font-weight: 700; margin-bottom: 12px; }
+.cs-hero .eyebrow { font-size: 0.78rem; text-transform: uppercase; opacity: 0.88; font-weight: 700; margin-bottom: 12px; }
 .cs-hero h1 { font-size: 2.5rem; margin: 0 0 14px; letter-spacing: -0.02em; font-weight: 500; }
 .cs-hero p.dek { font-size: 1.12rem; max-width: 600px; opacity: 0.95; margin: 0 0 24px; }
 .cs-hero .meta-row { display: flex; gap: 28px; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.9; }
-.cs-hero .meta-row div strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.75; margin-bottom: 2px; }
+.cs-hero .meta-row div strong { display: block; font-size: 0.7rem; text-transform: uppercase; opacity: 0.75; margin-bottom: 2px; }
 
 .cs-main { max-width: var(--maxw); margin: 0 auto; padding: 0 24px 120px; }
 
@@ -435,7 +436,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .stat-grid .stat .label { font-size: 0.85rem; color: var(--muted); }
 
 .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; }
-.process-steps .step strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 6px; }
+.process-steps .step strong { display: block; font-size: 0.72rem; text-transform: uppercase; margin-bottom: 6px; }
 .process-steps .step { font-size: 0.9rem; }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -458,7 +459,7 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 
 
 /* =============================================================
-   10. RESUME CARD (profile, experience/education tables, tool pills)
+   10. RESUME CARD (profile, tables, tool pills, tags)
    ============================================================= */
 .resume-card {
   border: 1px solid var(--line);
@@ -469,7 +470,6 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .resume-card .kicker {
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--muted);
   font-weight: 700;
   margin-bottom: 20px;
@@ -494,7 +494,6 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .profile-facts .fact-label {
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--muted);
   margin-bottom: 4px;
 }
@@ -508,7 +507,6 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .profile-columns .col-title {
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--muted);
   font-weight: 700;
   margin-bottom: 14px;
@@ -534,45 +532,31 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .tool-group .tg-label {
   font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--muted);
   margin-bottom: 8px;
   font-weight: 700;
 }
+
+/* Single definition for every tag/pill/badge on the site — compact
+   and squared (5px radius), monospace text via the Section 2 rule */
 .tool-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-.tool-pills span {
-  font-size: 0.82rem;
+.tool-pills span,
+.chip, .expertise-strip .chip, .featured-card .chip,
+.type-badge {
   font-weight: 600;
-  padding: 7px 14px;
-  border-radius: 999px;
+  font-size: 0.74rem;
+  padding: 5px 10px;
+  border-radius: var(--tag-radius);
   background: var(--panel-bg);
   border: 1px solid var(--line);
+  color: var(--ink);
 }
-/* Darker shade than --accent for AA contrast: white text on the
-   bright #22c55e alone falls short of AA; --accent-dark passes. */
-.tool-pills.ai span { background: var(--accent); color: var(--ink); border-color: var(--accent); }
-
-table.nice-table { width: 100%; border-collapse: collapse; }
-table.nice-table th {
-  text-align: left;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-  font-weight: 700;
-  padding: 0 12px 12px 0;
-  border-bottom: 1px solid var(--line);
+.tool-pills.ai span {
+  background: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
 }
-table.nice-table td {
-  padding: 16px 12px 16px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 0.94rem;
-  vertical-align: top;
-}
-table.nice-table tr:last-child td { border-bottom: none; }
-table.nice-table tr:hover td { background: var(--panel-bg); }
-table.nice-table td.cell-primary { font-weight: 700; }
-table.nice-table td.cell-date { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+.type-badge { color: var(--accent-dark); }
 
 span.cell-sub {
   display: block;
@@ -582,39 +566,10 @@ span.cell-sub {
   margin-top: 2px;
 }
 
-.type-badge {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: var(--panel-bg);
-  color: var(--accent-dark);
-}
-
 
 /* =============================================================
-   11. CONTACT & FOOTER
+   11. TABLE WRAPPER (boxed tables, status tag)
    ============================================================= */
-.contact-links { display: flex; gap: 22px; font-size: 0.95rem; flex-wrap: wrap; }
-footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px; font-size: 0.8rem; color: var(--muted); }
-
-
-/* =============================================================
-   12. RESPONSIVE
-   ============================================================= */
-@media (max-width: 680px) {
-  .featured-card, .work-grid, .two-col, .proof-strip,
-  .profile-facts, .profile-columns { grid-template-columns: 1fr; }
-  .site-header { border-radius: 20px; margin: 12px 16px 0; top: 12px; }
-  .hero-headline { font-size: 2.15rem; }
-  .cs-hero { padding: 84px 20px 40px; }
-  section.page-section, .full-bleed { padding: 64px 0; }
-}
-
-/* ---- Table wrapper: boxed container + shaded header, Firecrawl-style ---- */
 .table-wrap {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -627,7 +582,6 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   padding: 14px 16px;
   font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
   color: var(--muted);
   font-weight: 700;
   border-bottom: 1px solid var(--line);
@@ -641,9 +595,6 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
 .table-wrap table.nice-table tr:last-child td { border-bottom: none; }
 .table-wrap table.nice-table tr:hover td { background: var(--panel-bg); }
 .table-wrap table.nice-table td.cell-primary { font-weight: 700; }
-
-/* Monospace treatment for data-like values — dates read like the
-   TIME column in the reference table */
 .table-wrap table.nice-table td.cell-date {
   color: var(--muted);
   font-size: 0.85rem;
@@ -651,17 +602,14 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* Status tag for the current role — echoes the green "COMPLETED"
-   status text in the reference table */
+/* Status tag for a "current" role — green dot + label */
 .status-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--accent-dark);
 }
 .status-tag::before {
@@ -672,45 +620,10 @@ footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px;
   background: var(--accent-dark);
 }
 
-/* ---- Monospace personality layer: all small-caps utility text ---- */
-h2.section-label,
-.eyebrow-tag,
-.cs-hero .eyebrow,
-.chip, .expertise-strip .chip,
-.work-card .tags,
-.kicker, .resume-card .kicker,
-.tg-label, .col-title, .fact-label,
-table.nice-table th,
-.type-badge,
-.status-tag,
-.cs-hero .meta-row div strong,
-.process-steps .step strong {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  letter-spacing: 0.02em;
-}
-}
 
-/* ---- Compact, modern tags (tool pills, chips, badges) ---- */
-.tool-pills span,
-.chip, .expertise-strip .chip, .featured-card .chip,
-.type-badge {
-  padding: 4px 10px;
-  font-size: 0.74rem;
-  border-radius: 6px;
-  font-weight: 600;
-}
-
-.tool-pills.ai span {
-  background: var(--accent);
-  color: var(--ink);
-  border-color: var(--accent);
-}
-
-.status-tag {
-  font-size: 0.68rem;
-}
-
-/* ---- Process visual: step captions + connected screenshot squares ---- */
+/* =============================================================
+   12. PROCESS VISUAL (screenshot filmstrip + arrows)
+   ============================================================= */
 .process-visual { margin: 12px 0 40px; }
 
 .process-visual .steps-row {
@@ -756,11 +669,28 @@ table.nice-table th,
   flex-shrink: 0;
 }
 
-@media (max-width: 780px) {
+.process-visual.steps-3 .steps-row { grid-template-columns: repeat(3, 1fr); }
+.process-visual.steps-3 .visual-row { grid-template-columns: 1fr auto 1fr auto 1fr; }
+
+
+/* =============================================================
+   13. CONTACT & FOOTER
+   ============================================================= */
+.contact-links { display: flex; gap: 22px; font-size: 0.95rem; flex-wrap: wrap; }
+footer.site-footer { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px; font-size: 0.8rem; color: var(--muted); }
+
+
+/* =============================================================
+   14. RESPONSIVE
+   ============================================================= */
+@media (max-width: 680px) {
+  .featured-card, .work-grid, .two-col, .proof-strip,
+  .profile-facts, .profile-columns { grid-template-columns: 1fr; }
+  .site-header { border-radius: 20px; margin: 12px 16px 0; top: 12px; }
+  .hero-headline { font-size: 2.15rem; }
+  .cs-hero { padding: 84px 20px 40px; }
+  section.page-section, .full-bleed { padding: 64px 0; }
   .process-visual .steps-row { grid-template-columns: repeat(2, 1fr); }
   .process-visual .visual-row { grid-template-columns: 1fr; }
   .process-visual .visual-arrow { transform: rotate(90deg); margin: 0 auto; }
 }
-
-.process-visual.steps-3 .steps-row { grid-template-columns: repeat(3, 1fr); }
-.process-visual.steps-3 .visual-row { grid-template-columns: 1fr auto 1fr auto 1fr; }
