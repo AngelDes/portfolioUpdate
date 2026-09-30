@@ -492,25 +492,41 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
 .profile-facts .fact-value { font-weight: 700; font-size: 0.95rem; }
 
 .profile-columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
+.profile-columns > div {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.profile-columns > div:last-child { border-bottom: none; padding-bottom: 0; }
+.profile-columns > div:first-child { padding-top: 0; }
+
 .profile-columns .col-title {
   font-size: 0.7rem;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
-.profile-columns ul { list-style: none; margin: 0; padding: 0; }
+
+/* Skills & Sectors: bullets flow in two columns to use the full width */
+.profile-columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 32px;
+}
 .profile-columns li {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 0.85rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.5;
   margin-bottom: 10px;
+  break-inside: avoid;
 }
 .profile-columns li .icon-dot {
   width: 5px; height: 5px;
@@ -520,13 +536,19 @@ main.container > section.page-section:last-child { padding-bottom: 24px; }
   flex-shrink: 0;
 }
 
-.tool-group { margin-bottom: 14px; }
-.tool-group:last-child { margin-bottom: 0; }
+/* Tools row: Design / AI / Research groups sit side by side now
+   that there's a full row of width to work with */
+.profile-columns .tools-row {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.tool-group { margin-bottom: 0; }
 .tool-group .tg-label {
   font-size: 0.64rem;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-weight: 700;
 }
 
