@@ -594,28 +594,30 @@ span.cell-sub {
 .table-wrap table.nice-table th {
   background: var(--panel-bg);
   text-align: left;
-  padding: 14px 16px;
-  font-size: 0.68rem;
+  padding: 12px 16px;
+  font-size: 0.66rem;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 700;
   border-bottom: 1px solid var(--line);
 }
 .table-wrap table.nice-table td {
-  padding: 18px 16px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--line);
-  font-size: 0.94rem;
+  font-size: 0.88rem;
   vertical-align: top;
 }
 .table-wrap table.nice-table tr:last-child td { border-bottom: none; }
 .table-wrap table.nice-table tr:hover td { background: var(--panel-bg); }
-.table-wrap table.nice-table td.cell-primary { font-weight: 700; }
+.table-wrap table.nice-table td.cell-primary { font-weight: 700; font-size: 0.92rem; }
 .table-wrap table.nice-table td.cell-date {
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   white-space: nowrap;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
+
+.table-wrap table.nice-table td.cell-primary span.type-badge { margin-bottom: 6px; display: inline-block; }
 
 .status-tag {
   display: inline-flex;
