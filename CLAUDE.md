@@ -65,7 +65,6 @@ Tokens: `--chalk #ECEEF4`, `--chalk-deep #E0E3EE`, `--ink #12141F`, `--cobalt #2
 - Polistat dates ("2018 to 2019") are a placeholder guess.
 - Lynit: "measurement framework the team still uses today" and the +40% / -25% / -35% / "~40%" figures are unverified.
 - Four case studies show "Duration: Not specified".
-- Befective has a step titled "Ideación" (Spanish). Decide whether to translate.
 - Mobile hero order (art sits between headline and intro) may be worth revisiting.
 - Hero headline line breaks with the real Gloock font need checking on the live site; if it wraps to 2 or 4 lines, adjust the `5.5rem` cap in `.hero h1`.
 - JumpCloud page needs: real feature name, problem, what was done, outcome, one metric, screenshots (representative only; detail is confidential).
