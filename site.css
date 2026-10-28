@@ -176,6 +176,12 @@ a.chip:hover { border-color: var(--ink); }
 .art svg { display: block; width: 100%; height: auto; overflow: visible; }
 .art .bezel { fill: none; stroke: var(--ink); stroke-width: 1.5; }
 .art .cell { fill: var(--ink); stroke: none; }
+.art .axis { stroke: var(--ink); stroke-width: 1.5; fill: none; }
+.art .lens-ring { fill: none; stroke: var(--ink); stroke-width: 3; }
+.art .lens-handle { stroke: var(--ink); stroke-width: 9; stroke-linecap: round; }
+.art .ring { fill: var(--chalk); stroke: var(--ink); stroke-width: 1.5; }
+.art .bezel.hit { fill: var(--marigold); }
+.art--cobalt .bezel.hit { fill: var(--cobalt); }
 .art .hit { fill: var(--marigold); stroke: var(--ink); stroke-width: 1.5; }
 .art--cobalt .hit { fill: var(--cobalt); stroke: var(--cobalt); }
 

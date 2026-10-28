@@ -5,7 +5,7 @@
    data-seed picks the variation: frame shape (circle, rounded square, stadium) and how dot size
    behaves (radial, linear, twin focus, ripples). The same seed always draws the same art.
    data-animate plays the single load sequence: dots appear outward from the focus, then the mark fills.
-   data-kind="blocks" | "book" | "heat" swaps the grille for a project-specific piece (cols/rows/hit are ignored for book and heat).
+   data-kind="blocks" | "book" | "heat" | "find" | "flow" | "bars" | "tiles" swaps the grille for a project-specific piece (cols/rows/hit are ignored for book and heat).
    data-align="end" pins the art to the right edge when its box is wider than the art. */
 (function () {
   var NS = 'http://www.w3.org/2000/svg';
@@ -150,6 +150,89 @@
     host.appendChild(svg);
   }
 
+  function segDist(px, py, x1, y1, x2, y2) {
+    var dx = x2 - x1, dy = y2 - y1, t = clamp(((px - x1) * dx + (py - y1) * dy) / (dx * dx + dy * dy), 0, 1);
+    return Math.hypot(px - x1 - t * dx, py - y1 - t * dy);
+  }
+
+  // data-kind="find": a magnifier over scattered dots. Dots grow under the lens; the one it lands on is the hit.
+  function buildFind(host, rand, animate) {
+    var svg = makeSvg(host, 520, 360), pts = [], i, tries;
+    svg.appendChild(node('rect', { x: 18, y: 18, width: 484, height: 326, rx: 14, 'class': 'bezel' }));
+    for (tries = 0; tries < 4000 && pts.length < 80; tries++) {
+      var q = [30 + rand() * 460, 28 + rand() * 300], ok = true;
+      for (i = 0; i < pts.length; i++) { if (Math.hypot(pts[i][0] - q[0], pts[i][1] - q[1]) < 38) { ok = false; break; } }
+      if (ok) { pts.push(q); }
+    }
+    var cx = 230 + rand() * 50, cy = 140 + rand() * 30, R = 105;
+    var hx = cx + R * 0.71, hy = cy + R * 0.71, ex = hx + 80, ey = hy + 80, best = null, bd = 1e9;
+    pts = pts.filter(function (p) { return Math.abs(Math.hypot(p[0] - cx, p[1] - cy) - R) >= 8 && segDist(p[0], p[1], hx, hy, ex, ey) >= 14; });
+    pts.forEach(function (p) { var d = Math.hypot(p[0] - cx, p[1] - cy); if (d < bd) { bd = d; best = p; } });
+    pts.forEach(function (p) {
+      var d = Math.hypot(p[0] - cx, p[1] - cy);
+      addDot(svg, p[0], p[1], p === best ? 10 : (d < R ? 3.2 + 4.2 * (1 - d / R) : 1.7), p === best, animate, d * 4);
+    });
+    svg.appendChild(node('line', { x1: hx, y1: hy, x2: ex, y2: ey, 'class': 'lens-handle' }));
+    svg.appendChild(node('circle', { cx: cx, cy: cy, r: R, 'class': 'lens-ring' }));
+    host.appendChild(svg);
+  }
+
+  // data-kind="flow": start, one decision, two paths that rejoin. The chosen path has bigger dots and ends on the hit.
+  function buildFlow(host, rand, animate) {
+    var svg = makeSvg(host, 520, 360), top = rand() < 0.5;
+    var up = top ? 80 : 280, down = top ? 280 : 80;
+    function edge(pts, chosen, t0) {
+      for (var i = 0; i < pts.length - 1; i++) {
+        var a = pts[i], b = pts[i + 1], L = Math.hypot(b[0] - a[0], b[1] - a[1]), n = Math.round(L / 12);
+        for (var k = 1; k < n; k++) { addDot(svg, a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n, chosen ? 3.2 : 1.7, false, animate, t0 + (i * 150) + k * 25); }
+      }
+    }
+    edge([[190, 180], [190, down], [340, down], [450, down], [450, 180]], false, 400);
+    edge([[70, 180], [190, 180]], true, 0); edge([[190, 180], [190, up], [340, up]], true, 150); edge([[340, up], [450, up], [450, 180]], true, 450);
+    function ring(x, y, kind) {
+      if (kind === 'decide') { svg.appendChild(node('rect', { x: x - 17, y: y - 17, width: 34, height: 34, transform: 'rotate(45 ' + x + ' ' + y + ')', 'class': 'ring' })); }
+      else { svg.appendChild(node('circle', { cx: x, cy: y, r: 17, 'class': 'ring' })); }
+      addDot(svg, x, y, 5, false, animate, 300);
+    }
+    ring(70, 180); ring(190, 180, 'decide'); ring(340, up); ring(340, down);
+    addDot(svg, 450, 180, 17, true, animate, 800);
+    host.appendChild(svg);
+  }
+
+  // data-kind="bars": columns of stacked dots, rising with a little noise. The tallest column ends on the hit.
+  function buildBars(host, rand, animate) {
+    var svg = makeSvg(host, 520, 360), h = [], v = 2, i, c, k;
+    for (i = 0; i < 8; i++) { v = clamp(v + (rand() < 0.75 ? 1 : -1), 2, 10); h.push(v); }
+    var top = h.indexOf(Math.max.apply(null, h));
+    svg.appendChild(node('line', { x1: 36, y1: 330, x2: 484, y2: 330, 'class': 'axis' }));
+    for (c = 0; c < h.length; c++) {
+      for (k = 0; k < h[c]; k++) {
+        var last = k === h[c] - 1 && c === top;
+        addDot(svg, 70 + c * 54, 306 - k * 27, last ? 11 : 8, last, animate, c * 70 + k * 40);
+      }
+    }
+    host.appendChild(svg);
+  }
+
+  // data-kind="tiles": a heat grid of tiles, each holding a dot sized by value. The hottest tile is the hit.
+  function buildTiles(host, rand, animate) {
+    var svg = makeSvg(host, 520, 360), cols = 9, rows = 6, c, r;
+    var p1 = rand() * 3, p2 = rand() * 3, p3 = rand() * 3, best = null, cells = [];
+    for (r = 0; r < rows; r++) {
+      for (c = 0; c < cols; c++) {
+        var v = (Math.sin(c * 0.9 + p1) + Math.cos(r * 1.1 - p2) + Math.sin((c + r) * 0.55 + p3)) / 3 * 0.5 + 0.5;
+        var cell = { c: c, r: r, v: v }; cells.push(cell);
+        if (!best || v > best.v) { best = cell; }
+      }
+    }
+    cells.forEach(function (k) {
+      var x = 26 + k.c * 52, y = 26 + k.r * 52, isHit = k === best;
+      svg.appendChild(node('rect', { x: x, y: y, width: 44, height: 44, rx: 8, 'class': isHit ? 'bezel hit' : 'bezel' }));
+      addDot(svg, x + 22, y + 22, isHit ? 15 : 2 + 15 * k.v * k.v, false, animate, Math.hypot(k.c - best.c, k.r - best.r) * 90);
+    });
+    host.appendChild(svg);
+  }
+
   function build(host) {
     var cols = parseInt(host.getAttribute('data-cols'), 10) || 6;
     var rows = parseInt(host.getAttribute('data-rows'), 10) || 5;
@@ -160,6 +243,10 @@
     var animate = host.hasAttribute('data-animate');
 
     var kind = host.getAttribute('data-kind');
+    if (kind === 'find') { buildFind(host, rand, animate); return; }
+    if (kind === 'flow') { buildFlow(host, rand, animate); return; }
+    if (kind === 'bars') { buildBars(host, rand, animate); return; }
+    if (kind === 'tiles') { buildTiles(host, rand, animate); return; }
     if (kind === 'book') { buildBook(host, rand, animate); return; }
     if (kind === 'heat') { buildHeat(host, rand, animate); return; }
     if (host.getAttribute('data-kind') === 'blocks') { buildBlocks(host, cols, rows, hc, hr, rand, animate); return; }
