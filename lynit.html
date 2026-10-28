@@ -3,145 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lynit — Case Study | Luis Angel Arreguín</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2355642f'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='700' fill='%23fdfdf5' text-anchor='middle'%3ELA%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css">
+<meta name="color-scheme" content="light">
+<title>Lynit — Case Study | Angel Arreguín</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232447D6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='700' fill='%23ECEEF4' text-anchor='middle'%3ELA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Sora:wght@300..700&display=swap">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a class="logo" href="index.html">Luis Angel Arreguín</a>
-  <nav>
-    <a href="index.html#work">Work</a>
-    <a href="index.html#resume">Resume</a>
-    <a class="nav-cta" href="mailto:l.angelarreguinperez@gmail.com">Get in touch</a>
-  </nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Angel Arreguín</a>
+    <nav aria-label="Main">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#resume">Resume</a>
+      <a class="nav-cta" href="mailto:l.angelarreguinperez@gmail.com">Get in touch</a>
+    </nav>
+  </div>
 </header>
 
-<section class="cs-hero" style="background: linear-gradient(135deg,#4a3f63,#7d6f8c);">
-  <div class="cs-hero-inner">
-    <div class="eyebrow">Case Study · B2C Web Application</div>
-    <h1>Lynit</h1>
-    <p class="dek">A tool for writers to outline complex stories — and the project where I learned what it actually takes to build a design system and a design team from nothing.</p>
-    <div class="meta-row">
-      <div><strong>Role</strong>Sr. UX Designer, Team Lead</div>
-      <div><strong>Duration</strong>2 years</div>
-      <div><strong>Methodologies</strong>Design Thinking, Shape Up, Atomic Design</div>
-      <div><strong>Tools</strong>Figma, Principle, Miro, Amplitude, LogRocket</div>
+<main>
+
+  <section class="page-hero">
+    <div class="wrap cs-hero-grid">
+      <div>
+        <a class="back" href="index.html#work">Back to all work</a>
+        <p class="cs-kind">Case Study · B2C Web Application</p>
+        <h1 class="page-title">Lynit</h1>
+        <p class="page-lede">A tool for writers to outline complex stories — and the project where I learned what it actually takes to build a design system and a design team from nothing.</p>
+        <dl class="meta-grid">
+          <div><dt>Role</dt><dd>Sr. UX Designer, Team Lead</dd></div>
+          <div><dt>Duration</dt><dd>2 years</dd></div>
+          <div><dt>Methodologies</dt><dd>Design Thinking, Shape Up, Atomic Design</dd></div>
+          <div><dt>Tools</dt><dd>Figma, Principle, Miro, Amplitude, LogRocket</dd></div>
+        </dl>
+      </div>
+      <div class="art art--cobalt cs-hero-art" data-animate data-cols="5" data-rows="4" data-hit="1,2" data-seed="23"></div>
     </div>
+  </section>
+
+  <div class="wrap cs-body">
+    <section class="cs-section">
+      <h2 class="cs-title">About</h2>
+      <div class="cs-content">
+        <p>Lynit helps writers outline their stories using data visualization and mind mapping — a visual way to see how story elements connect, instead of losing the thread in pages of notes.</p>
+        <p>We launched v1 and grew from 0 to around 500 users in a couple of months, which felt like validation. It wasn't, not entirely. Underneath the growth number was a retention problem: new users weren't coming back, and roughly 60% never even discovered the product's core connection features. Good acquisition, leaky product.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">My contribution</h2>
+      <div class="cs-content">
+        <p>I owned the redesign end to end, which at a startup means the boundaries of "design" get blurry fast. I wasn't just designing screens — I was building the process that would let us keep designing well as we grew.</p>
+        <ul>
+<li>Led problem definition and prioritization using the Shape Up framework</li>
+<li>Directed research: journey mapping, funnel analysis, user and stakeholder interviews</li>
+<li>Defined and governed the product's design principles and design system</li>
+<li>Led ideation, wireframing, prototyping, and usability testing</li>
+<li>Built the measurement framework: baselines, dashboards, design-impact reporting</li>
+<li>Led and mentored the design team; managed dev collaboration and phased launch</li>
+</ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">The problem</h2>
+      <div class="cs-content">
+        <p>Only 10% of new users ever updated a connection, and just 17% of active subscribers came back after their first week. Journey mapping made the reasons obvious once we actually looked: connection creation was too slow, users didn't understand why it mattered, and the first screen threw everything at them at once with no clear place to start.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Problem definition with Shape Up</h2>
+      <div class="cs-content">
+        <p>I'd worked in enough loosely-scoped sprints to know how design work quietly expands to fill however much time you give it. I pushed for Shape Up specifically to put a hard edge on that:</p>
+        <ul>
+<li>Used "appetite" to cap time investment per problem — fixed 6-week cycles instead of open-ended scoping</li>
+<li>Ran structured "shaping" sessions with stakeholders to define problems tightly before design work began</li>
+<li>Wrote pitch docs stating the problem, constraints, and solution boundaries up front</li>
+<li>Organized small, autonomous teams around well-defined problems</li>
+<li>Used hill charts to track progress and surface risk early</li>
+</ul>
+        <p>What changed wasn't just process — it was the conversation. The team stopped reacting to feature requests and started arguing about problems, which is a much better argument to be having.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Design principles &amp; design system</h2>
+      <div class="cs-content">
+        <p>There was no existing system to inherit — I built it from zero, which is either a gift or a burden depending on the week. I pushed for the investment in an atomic system even when the timeline argued against it, and had to make the case for why slowing down now would speed us up later.</p>
+        <h3 class="cs-sub">Principles</h3>
+        <ul>
+<li><strong>Clarity Over Complexity</strong> — clear mental models over feature abundance</li>
+<li><strong>Progressive Disclosure</strong> — reveal functionality as users gain expertise</li>
+<li><strong>Visual Storytelling</strong> — use visualization to reveal narrative structure</li>
+<li><strong>Friction-Free Creation</strong> — minimize barriers to capturing ideas</li>
+<li><strong>Coherent Ecosystem</strong> — all parts of the system work together</li>
+</ul>
+        <p>These principles ended up doing more work than I expected — not just guiding design decisions, but settling debates and giving new team members something solid to stand on from day one.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Leadership &amp; stakeholder management</h2>
+      <div class="cs-content">
+        <ul>
+<li>Acted as the primary bridge between engineering, executives, and the design team; negotiated shared success metrics with engineering leadership</li>
+<li>Instituted weekly cross-functional design reviews and pair-design sessions with frontend developers, cutting design-clarification requests by roughly 40%</li>
+<li>Presented progress and impact metrics to executives to secure buy-in and resources for post-launch iteration</li>
+<li>Brought a junior designer onto the design system and mentored them into owning its maintenance</li>
+</ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Data &amp; measurement approach</h2>
+      <div class="cs-content">
+        <ul>
+<li>Established pre-redesign baselines for credible before/after comparison</li>
+<li>Partnered with data/analytics to build custom Amplitude dashboards tied to specific design changes</li>
+<li>Introduced recurring design-impact reports connecting UX changes to business metrics, reviewed at the leadership level</li>
+<li>Tracked connection creation/update rate, weekly return rate, time-to-first-connection, session depth, and support tickets tied to navigation</li>
+</ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Results &amp; impact</h2>
+      <div class="cs-content">
+        <div class="stats">
+<div class="stat"><span class="stat-num">+30%</span><span class="stat-label">Returning users after launch</span></div>
+<div class="stat"><span class="stat-num">+40%</span><span class="stat-label">Connection creation rate</span></div>
+<div class="stat"><span class="stat-num">-25%</span><span class="stat-label">Time-to-first-connection</span></div>
+<div class="stat"><span class="stat-num">-35%</span><span class="stat-label">Feature implementation time</span></div>
+</div>
+        <h3 class="cs-sub">Qualitative</h3>
+        <ul>
+<li>The team adopted shared design principles that resolved debates and sped up decisions</li>
+<li>Design-impact reporting became the standard used to evaluate every subsequent release</li>
+<li>Engineering reported far fewer design-clarification requests after the system rollout</li>
+</ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Looking back</h2>
+      <div class="cs-content">
+        <p>Lynit is where I actually learned what "design system" means beyond components in a file — it's a bet on how a team will work together months from now, made under a deadline that doesn't care if you're right yet. It's also where I learned that mentoring someone into owning that system matters as much as building it. The system outlasted me on the project; the person I trained to run it didn't need me to.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Business goals</h2>
+      <div class="cs-content">
+        <p>The redesign directly addressed Lynit's core retention problem, turning a leaky onboarding funnel into a repeatable, measured process — and gave the organization a design system and measurement framework built to support future release cycles.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">Add visuals</h2>
+      <div class="cs-content">
+        <figure class="shot shot--wide">
+          <div class="frame panel"><div class="art" data-cols="7" data-rows="3" data-hit="4,1" data-seed="32"></div></div>
+          <figcaption>Add product screenshots / prototypes here</figcaption>
+        </figure>
+      </div>
+    </section>
   </div>
-</section>
-
-<main class="cs-main">
-
-  <section class="cs-block">
-    <h2 class="cs-label">About</h2>
-    <p>Lynit helps writers outline their stories using data visualization and mind mapping — a visual way to see how story elements connect, instead of losing the thread in pages of notes.</p>
-    <p>We launched v1 and grew from 0 to around 500 users in a couple of months, which felt like validation. It wasn't, not entirely. Underneath the growth number was a retention problem: new users weren't coming back, and roughly 60% never even discovered the product's core connection features. Good acquisition, leaky product.</p>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">My Contribution</h2>
-    <p>I owned the redesign end to end, which at a startup means the boundaries of "design" get blurry fast. I wasn't just designing screens — I was building the process that would let us keep designing well as we grew.</p>
-    <ul>
-      <li>Led problem definition and prioritization using the Shape Up framework</li>
-      <li>Directed research: journey mapping, funnel analysis, user and stakeholder interviews</li>
-      <li>Defined and governed the product's design principles and design system</li>
-      <li>Led ideation, wireframing, prototyping, and usability testing</li>
-      <li>Built the measurement framework: baselines, dashboards, design-impact reporting</li>
-      <li>Led and mentored the design team; managed dev collaboration and phased launch</li>
-    </ul>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">The Problem</h2>
-    <p>Only 10% of new users ever updated a connection, and just 17% of active subscribers came back after their first week. Journey mapping made the reasons obvious once we actually looked: connection creation was too slow, users didn't understand why it mattered, and the first screen threw everything at them at once with no clear place to start.</p>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Problem Definition with Shape Up</h2>
-    <p>I'd worked in enough loosely-scoped sprints to know how design work quietly expands to fill however much time you give it. I pushed for Shape Up specifically to put a hard edge on that:</p>
-    <ul>
-      <li>Used "appetite" to cap time investment per problem — fixed 6-week cycles instead of open-ended scoping</li>
-      <li>Ran structured "shaping" sessions with stakeholders to define problems tightly before design work began</li>
-      <li>Wrote pitch docs stating the problem, constraints, and solution boundaries up front</li>
-      <li>Organized small, autonomous teams around well-defined problems</li>
-      <li>Used hill charts to track progress and surface risk early</li>
-    </ul>
-    <p>What changed wasn't just process — it was the conversation. The team stopped reacting to feature requests and started arguing about problems, which is a much better argument to be having.</p>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Design Principles &amp; Design System</h2>
-    <p>There was no existing system to inherit — I built it from zero, which is either a gift or a burden depending on the week. I pushed for the investment in an atomic system even when the timeline argued against it, and had to make the case for why slowing down now would speed us up later.</p>
-    <h3 class="cs-sub">Principles</h3>
-    <ul>
-      <li><strong>Clarity Over Complexity</strong> — clear mental models over feature abundance</li>
-      <li><strong>Progressive Disclosure</strong> — reveal functionality as users gain expertise</li>
-      <li><strong>Visual Storytelling</strong> — use visualization to reveal narrative structure</li>
-      <li><strong>Friction-Free Creation</strong> — minimize barriers to capturing ideas</li>
-      <li><strong>Coherent Ecosystem</strong> — all parts of the system work together</li>
-    </ul>
-    <p>These principles ended up doing more work than I expected — not just guiding design decisions, but settling debates and giving new team members something solid to stand on from day one.</p>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Leadership &amp; Stakeholder Management</h2>
-    <ul>
-      <li>Acted as the primary bridge between engineering, executives, and the design team; negotiated shared success metrics with engineering leadership</li>
-      <li>Instituted weekly cross-functional design reviews and pair-design sessions with frontend developers, cutting design-clarification requests by roughly 40%</li>
-      <li>Presented progress and impact metrics to executives to secure buy-in and resources for post-launch iteration</li>
-      <li>Brought a junior designer onto the design system and mentored them into owning its maintenance</li>
-    </ul>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Data &amp; Measurement Approach</h2>
-    <ul>
-      <li>Established pre-redesign baselines for credible before/after comparison</li>
-      <li>Partnered with data/analytics to build custom Amplitude dashboards tied to specific design changes</li>
-      <li>Introduced recurring design-impact reports connecting UX changes to business metrics, reviewed at the leadership level</li>
-      <li>Tracked connection creation/update rate, weekly return rate, time-to-first-connection, session depth, and support tickets tied to navigation</li>
-    </ul>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Results &amp; Impact</h2>
-    <div class="stat-grid">
-      <div class="stat"><span class="num">+30%</span><span class="label">Returning users after launch</span></div>
-      <div class="stat"><span class="num">+40%</span><span class="label">Connection creation rate</span></div>
-      <div class="stat"><span class="num">-25%</span><span class="label">Time-to-first-connection</span></div>
-      <div class="stat"><span class="num">-35%</span><span class="label">Feature implementation time</span></div>
-    </div>
-    <h3 class="cs-sub">Qualitative</h3>
-    <ul>
-      <li>The team adopted shared design principles that resolved debates and sped up decisions</li>
-      <li>Design-impact reporting became the standard used to evaluate every subsequent release</li>
-      <li>Engineering reported far fewer design-clarification requests after the system rollout</li>
-    </ul>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Looking Back</h2>
-    <p>Lynit is where I actually learned what "design system" means beyond components in a file — it's a bet on how a team will work together months from now, made under a deadline that doesn't care if you're right yet. It's also where I learned that mentoring someone into owning that system matters as much as building it. The system outlasted me on the project; the person I trained to run it didn't need me to.</p>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Business Goals</h2>
-    <p>The redesign directly addressed Lynit's core retention problem, turning a leaky onboarding funnel into a repeatable, measured process — and gave the organization a design system and measurement framework built to support future release cycles.</p>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">Add Visuals</h2>
-    <div class="cs-visual" style="background: linear-gradient(135deg,#4a3f63,#7d6f8c);">Add product screenshots / prototypes here</div>
-  </section>
 
 </main>
 
-<section class="cs-close">
-  <a class="back-link" href="index.html">← Back to all work</a>
+<!-- Contact band -->
+<section id="contact" class="band-dark contact">
+  <div class="wrap">
+    <h2 class="contact-headline">Let's connect</h2>
+    <p class="contact-sub">Ambiguous problem, tight timeline, or just want to talk shop. I'm around.</p>
+    <a class="btn-contact" href="mailto:l.angelarreguinperez@gmail.com">Contact me</a>
+  </div>
 </section>
-<footer class="site-footer">© 2026 Luis Angel Arreguín</footer>
 
+<footer class="site-footer band-dark">
+  <div class="wrap">© 2026 Angel Arreguín</div>
+</footer>
+
+<script src="art.js" defer></script>
 </body>
 </html>

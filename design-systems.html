@@ -3,84 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design Systems — Luis Angel Arreguín</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2355642f'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='700' fill='%23fdfdf5' text-anchor='middle'%3ELA%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css">
+<meta name="color-scheme" content="light">
+<title>Design Systems — Angel Arreguín</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232447D6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='700' fill='%23ECEEF4' text-anchor='middle'%3ELA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Sora:wght@300..700&display=swap">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
 <header class="site-header">
-  <a class="logo" href="index.html">Luis Angel Arreguín</a>
-  <nav>
-    <a href="index.html#work">Work</a>
-    <a href="index.html#resume">Resume</a>
-    <a class="nav-cta" href="mailto:l.angelarreguinperez@gmail.com">Get in touch</a>
-  </nav>
+  <div class="wrap">
+    <a class="logo" href="index.html">Angel Arreguín</a>
+    <nav aria-label="Main">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#resume">Resume</a>
+      <a class="nav-cta" href="mailto:l.angelarreguinperez@gmail.com">Get in touch</a>
+    </nav>
+  </div>
 </header>
 
-<section class="cs-hero" style="background: linear-gradient(135deg,#2f5c4a,#4c8a6f);">
-  <div class="cs-hero-inner">
-    <div class="eyebrow">Cross-Project Expertise</div>
-    <h1>Design Systems</h1>
-    <p class="dek">Two systems, two different contexts: one built from scratch inside a startup's product team, the other developed for a consultancy and reused across multiple client engagements. Here's how I think about the difference.</p>
-    <div class="meta-row">
-      <div><strong>Scope</strong>3 products</div>
-      <div><strong>Type</strong>In-house · Reused &amp; adapted</div>
-      <div><strong>Focus</strong>Consistency, dev speed, UI/UX debt reduction</div>
+<main>
+
+  <section class="page-hero">
+    <div class="wrap cs-hero-grid">
+      <div>
+        <a class="back" href="index.html">Back to home</a>
+        <p class="cs-kind">Cross-Project Expertise</p>
+        <h1 class="page-title">Design Systems</h1>
+        <p class="page-lede">Two systems, two different contexts: one built from scratch inside a startup's product team, the other developed for a consultancy and reused across multiple client engagements. Here's how I think about the difference.</p>
+        <dl class="meta-grid">
+          <div><dt>Scope</dt><dd>3 products</dd></div>
+          <div><dt>Type</dt><dd>In-house · Reused &amp; adapted</dd></div>
+          <div><dt>Focus</dt><dd>Consistency, dev speed, UI/UX debt reduction</dd></div>
+        </dl>
+      </div>
+      <div class="art art--cobalt cs-hero-art" data-animate data-cols="5" data-rows="4" data-hit="2,0" data-seed="97"></div>
     </div>
+  </section>
+
+  <div class="wrap cs-body">
+    <section class="cs-section">
+      <h2 class="cs-title">Why this matters</h2>
+      <div class="cs-content">
+        <p>A design system isn't just a component library — it's a bet about how a product or organization will grow. The right bet depends entirely on context. A startup building its first real product needs something different from a consultancy serving multiple clients under one roof. I've built for both, and the two experiences taught me different lessons.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">System 1 — Built from scratch (startup context)</h2>
+      <div class="cs-content">
+        <p>At Lynit, a startup, there was no existing component library to inherit — and no other team or client to coordinate around. That's the defining feature of this kind of system: it's built for one product's long-term evolution, with the freedom (and pressure) of starting from a blank page.</p>
+        <p>I designed the system using an atomic approach — tokens, base components, and composition patterns for a product still finding its shape. Just as important: I brought a junior designer onto the system and mentored them into owning its maintenance. A system only stays alive if someone other than its original architect can run it.</p>
+        <div class="stats">
+<div class="stat"><span class="stat-num">From 0</span><span class="stat-label">No prior system to inherit</span></div>
+<div class="stat"><span class="stat-num">2</span><span class="stat-label">Designers maintaining it (incl. 1 mentee)</span></div>
+<div class="stat"><span class="stat-num">Atomic</span><span class="stat-label">Design methodology</span></div>
+</div>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">System 2 — Reused across client engagements (consultancy context)</h2>
+      <div class="cs-content">
+        <p>Polistat and Mapeo de Decisiones were two separate client projects delivered by the same organization — a consultancy, not a single product team. That changes the design-system question entirely: instead of "how does this system grow with one product," the question becomes "how does this system survive being handed to a different client with different branding and different constraints."</p>
+        <p>Rather than building Mapeo's system from zero, I evolved Polistat's component library into its foundation — rebranded for the new client, and migrated the working files from Adobe XD to Sketch in the process. Less visible than a from-scratch build. Considerably more valuable at the organizational level, because it meant the second engagement didn't cost as much as the first.</p>
+        <div class="stats">
+<div class="stat"><span class="stat-num">2</span><span class="stat-label">Client engagements sharing one system</span></div>
+<div class="stat"><span class="stat-num">1</span><span class="stat-label">Full rebrand executed on the shared system</span></div>
+<div class="stat"><span class="stat-num">XD → Sketch</span><span class="stat-label">Tooling migration handled alongside reuse</span></div>
+</div>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">What each approach actually solves</h2>
+      <div class="cs-content">
+        <ul>
+<li><strong>Consistency across engagements</strong> — for the consultancy work specifically, a shared, adaptable system meant Mapeo didn't start from a blank slate or drift into inconsistent patterns against Polistat</li>
+<li><strong>Development speed</strong> — in both contexts, a documented system meant engineering wasn't re-deciding the same UI questions on every new feature or client engagement</li>
+<li><strong>Reduced UI/UX debt</strong> — governance (in the startup case) and disciplined reuse (in the consultancy case) both prevent the same failure mode: one-off components accumulating until nobody can say what the "real" pattern is anymore</li>
+</ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2 class="cs-title">System anatomy</h2>
+      <div class="cs-content">
+        <p>Below: an annotated breakdown of tokens, base components, and composition patterns — documented roughly the way it was handed to engineering for implementation.</p>
+        <figure class="shot shot--wide">
+          <div class="frame panel"><div class="art" data-cols="7" data-rows="3" data-hit="4,1" data-seed="106"></div></div>
+          <figcaption>Add annotated component diagram here</figcaption>
+        </figure>
+      </div>
+    </section>
   </div>
-</section>
-
-<main class="cs-main">
-
-  <section class="cs-block">
-    <h2 class="cs-label">Why This Matters</h2>
-    <p>A design system isn't just a component library — it's a bet about how a product or organization will grow. The right bet depends entirely on context. A startup building its first real product needs something different from a consultancy serving multiple clients under one roof. I've built for both, and the two experiences taught me different lessons.</p>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">System 1 — Built From Scratch (Startup Context)</h2>
-    <p>At Lynit, a startup, there was no existing component library to inherit — and no other team or client to coordinate around. That's the defining feature of this kind of system: it's built for one product's long-term evolution, with the freedom (and pressure) of starting from a blank page.</p>
-    <p>I designed the system using an atomic approach — tokens, base components, and composition patterns for a product still finding its shape. Just as important: I brought a junior designer onto the system and mentored them into owning its maintenance. A system only stays alive if someone other than its original architect can run it.</p>
-    <div class="stat-grid">
-      <div class="stat"><span class="num">From 0</span><span class="label">No prior system to inherit</span></div>
-      <div class="stat"><span class="num">2</span><span class="label">Designers maintaining it (incl. 1 mentee)</span></div>
-      <div class="stat"><span class="num">Atomic</span><span class="label">Design methodology</span></div>
-    </div>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">System 2 — Reused Across Client Engagements (Consultancy Context)</h2>
-    <p>Polistat and Mapeo de Decisiones were two separate client projects delivered by the same organization — a consultancy, not a single product team. That changes the design-system question entirely: instead of "how does this system grow with one product," the question becomes "how does this system survive being handed to a different client with different branding and different constraints."</p>
-    <p>Rather than building Mapeo's system from zero, I evolved Polistat's component library into its foundation — rebranded for the new client, and migrated the working files from Adobe XD to Sketch in the process. Less visible than a from-scratch build. Considerably more valuable at the organizational level, because it meant the second engagement didn't cost as much as the first.</p>
-    <div class="stat-grid">
-      <div class="stat"><span class="num">2</span><span class="label">Client engagements sharing one system</span></div>
-      <div class="stat"><span class="num">1</span><span class="label">Full rebrand executed on the shared system</span></div>
-      <div class="stat"><span class="num">XD → Sketch</span><span class="label">Tooling migration handled alongside reuse</span></div>
-    </div>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">What Each Approach Actually Solves</h2>
-    <ul>
-      <li><strong>Consistency across engagements</strong> — for the consultancy work specifically, a shared, adaptable system meant Mapeo didn't start from a blank slate or drift into inconsistent patterns against Polistat</li>
-      <li><strong>Development speed</strong> — in both contexts, a documented system meant engineering wasn't re-deciding the same UI questions on every new feature or client engagement</li>
-      <li><strong>Reduced UI/UX debt</strong> — governance (in the startup case) and disciplined reuse (in the consultancy case) both prevent the same failure mode: one-off components accumulating until nobody can say what the "real" pattern is anymore</li>
-    </ul>
-  </section>
-
-  <section class="cs-block">
-    <h2 class="cs-label">System Anatomy</h2>
-    <p>Below: an annotated breakdown of tokens, base components, and composition patterns — documented roughly the way it was handed to engineering for implementation.</p>
-    <div class="cs-visual" style="background: linear-gradient(135deg,#2f5c4a,#4c8a6f);">Add annotated component diagram here</div>
-  </section>
 
 </main>
 
-<section class="cs-close">
-  <a class="back-link" href="index.html">← Back to home</a>
+<!-- Contact band -->
+<section id="contact" class="band-dark contact">
+  <div class="wrap">
+    <h2 class="contact-headline">Let's connect</h2>
+    <p class="contact-sub">Ambiguous problem, tight timeline, or just want to talk shop. I'm around.</p>
+    <a class="btn-contact" href="mailto:l.angelarreguinperez@gmail.com">Contact me</a>
+  </div>
 </section>
-<footer class="site-footer">© 2026 Luis Angel Arreguín</footer>
 
+<footer class="site-footer band-dark">
+  <div class="wrap">© 2026 Angel Arreguín</div>
+</footer>
+
+<script src="art.js" defer></script>
 </body>
 </html>
