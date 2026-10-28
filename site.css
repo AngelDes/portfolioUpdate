@@ -174,8 +174,9 @@ a.chip:hover { border-color: var(--ink); }
    Generated art
    -------------------------------------------------------------------------- */
 .art svg { display: block; width: 100%; height: auto; overflow: visible; }
-.art .cell { fill: transparent; stroke: var(--ink); stroke-width: 1.5; }
-.art .hit { fill: var(--marigold); }
+.art .bezel { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.art .cell { fill: var(--ink); stroke: none; }
+.art .hit { fill: var(--marigold); stroke: var(--ink); stroke-width: 1.5; }
 .art--cobalt .hit { fill: var(--cobalt); stroke: var(--cobalt); }
 
 @keyframes cell-in { from { opacity: 0; } to { opacity: 1; } }
@@ -552,3 +553,21 @@ a.chip:hover { border-color: var(--ink); }
   .ai-grid { grid-template-columns: 1fr; }
   .ai-art { max-width: 12rem; }
 }
+
+
+/* --------------------------------------------------------------------------
+   Cursor (see cursor.js). Only exists with a fine pointer.
+   -------------------------------------------------------------------------- */
+.has-cursor, .has-cursor * { cursor: none !important; }
+.cursor { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 2147483647; visibility: hidden; }
+.cursor.on { visibility: visible; }
+.cursor-dot { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--cobalt); transition: transform .18s var(--ease), background .18s var(--ease); }
+.cursor.link .cursor-dot { transform: scale(3.2); background: rgba(36, 71, 214, .16); box-shadow: inset 0 0 0 1px rgba(36, 71, 214, .7); }
+.cursor.label .cursor-dot { transform: scale(.7); }
+.cursor-label { position: absolute; left: 14px; top: 10px; padding: .3rem .8rem; border-radius: 999px; background: var(--marigold); color: var(--ink); font: 600 .8125rem/1.2 var(--font-body); white-space: nowrap; opacity: 0; transform: scale(.8); transform-origin: 0 0; transition: opacity .14s, transform .18s var(--ease); }
+.cursor.label .cursor-label { opacity: 1; transform: scale(1); }
+.cursor-trail { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 2147483646; }
+/* on the dark band the dot and ring switch to light so they stay visible */
+.cursor.on-dark .cursor-dot { background: #7FB0FF; }
+.cursor.on-dark.link .cursor-dot { background: rgba(127, 176, 255, .2); box-shadow: inset 0 0 0 1px rgba(127, 176, 255, .8); }
+@media print { .cursor, .cursor-trail { display: none; } }
