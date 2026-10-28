@@ -552,12 +552,3 @@ a.chip:hover { border-color: var(--ink); }
   .ai-grid { grid-template-columns: 1fr; }
   .ai-art { max-width: 12rem; }
 }
-
-.ai-steps { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin: clamp(3rem, 6vw, 4.5rem) 0 0; padding: 0; counter-reset: none; }
-.ai-steps li { padding-top: 1.25rem; border-top: 1px solid var(--line); }
-.ai-step-num { display: block; margin-bottom: .5rem; font-family: var(--font-display); font-size: 1.5rem; line-height: 1; color: var(--cobalt); }
-.ai-steps h3 { margin: 0 0 .25rem; font-size: 1rem; font-weight: 600; }
-.ai-steps p { margin: 0; color: var(--slate); font-size: .9375rem; line-height: 1.5; }
-.ai-more { margin: 2.5rem 0 0; }
-@media (max-width: 860px) { .ai-steps { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 480px) { .ai-steps { grid-template-columns: 1fr; gap: 1.5rem; } }
