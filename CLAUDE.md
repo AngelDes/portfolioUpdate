@@ -58,6 +58,10 @@ Tokens: `--chalk #ECEEF4`, `--chalk-deep #E0E3EE`, `--ink #12141F`, `--cobalt #2
 - Specificity: `.art svg` appears later in the file and overrides `.hero-art svg`. Hero rules use `.hero .hero-art svg` for that reason.
 - Mobile: header uses `white-space: nowrap`; the Resume link is hidden at 480px and below.
 
+## Cache busting
+
+Pages load `site.css?v=...`, `art.js?v=...` and `cursor.js?v=...`. GitHub Pages caches files for about 10 minutes and browsers keep them longer, so after changing any of those files bump the `v` value in every HTML file (search for `?v=`), otherwise visitors can see a mix of old and new.
+
 ## Workflow
 
 - Work one section at a time on the homepage, then one case study at a time.
