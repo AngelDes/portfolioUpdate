@@ -167,7 +167,11 @@ h1, h2, h3, h4, p, ul, dl, figure { margin-top: 0; }
   line-height: 1.6;
   text-decoration: none;
 }
-a.chip:hover { border-color: var(--ink); }
+.hero-strip { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+.hero-strip .expertise { padding-top: 1.5rem; border-top: 1px solid var(--line); }
+/* linked chips read as links: cobalt text and border, gradient fill on hover */
+a.chip { color: var(--cobalt); border-color: rgba(36, 71, 214, .45); font-weight: 600; transition: background .24s var(--ease), color .24s var(--ease); }
+a.chip:hover { background: var(--grad); color: #fff; border-color: transparent; }
 .pill--ai { background: var(--marigold); border-color: transparent; }
 
 /* --------------------------------------------------------------------------
