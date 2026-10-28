@@ -318,9 +318,7 @@ a.chip:hover { border-color: var(--ink); }
 .r-heading { font-family: var(--font-body); font-weight: 600; font-size: 1.25rem; line-height: 1.3; margin-bottom: 1rem; }
 .r-intro { max-width: var(--measure); margin-bottom: 1.75rem; color: var(--slate); }
 
-.profile-facts { display: flex; flex-wrap: wrap; gap: 1rem 3.5rem; margin-bottom: 1.5rem; }
-.fact-label { display: block; color: var(--slate); font-size: .875rem; }
-.fact-value { display: block; font-size: 1.125rem; font-weight: 500; line-height: 1.4; }
+.fact-value { margin: 0; font-size: 1.0625rem; line-height: 1.5; }
 
 .profile-row {
   display: grid;
@@ -334,10 +332,10 @@ a.chip:hover { border-color: var(--ink); }
 .plain-list { list-style: none; display: grid; gap: .5rem; margin: 0; padding: 0; line-height: 1.5; }
 .tool-groups { display: grid; gap: .9rem; }
 .tool-group { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
-.tool-group-label { min-width: 7.5rem; color: var(--slate); font-size: .875rem; }
+.tool-group-label { min-width: 8rem; color: var(--slate); font-size: .875rem; }
 
 .table-wrap { overflow-x: auto; }
-.nice-table { width: 100%; border-collapse: collapse; font-size: .9375rem; line-height: 1.5; }
+.nice-table { width: 100%; min-width: 36rem; table-layout: fixed; border-collapse: collapse; font-size: .9375rem; line-height: 1.5; }
 .nice-table th {
   padding: .75rem 1.25rem .75rem 0;
   border-bottom: 1px solid var(--ink);
@@ -347,6 +345,9 @@ a.chip:hover { border-color: var(--ink); }
   text-align: left;
 }
 .nice-table td { padding: 1rem 1.25rem 1rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.nice-table th:nth-child(1), .nice-table th:nth-child(2) { width: 40%; }
+.nice-table th:nth-child(3) { width: 20%; }
+.nice-table--cred td:not(:first-child) { vertical-align: bottom; }
 .cell-primary { font-weight: 600; }
 .cell-sub { display: block; color: var(--slate); font-size: .8125rem; font-weight: 400; }
 .cell-date { white-space: nowrap; color: var(--slate); }
@@ -483,7 +484,7 @@ a.chip:hover { border-color: var(--ink); }
 .cs-body { padding-bottom: clamp(4rem, 8vw, 6rem); }
 .cs-kind { margin: 0 0 1rem; color: var(--slate); font-size: .9375rem; }
 
-.meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 2.5rem; max-width: 42rem; margin: 2.5rem 0 0; }
+.meta-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 1.25rem clamp(2rem, 5vw, 4rem); margin: 0; padding: 2.5rem 0 3rem; }
 .meta-grid dt { color: var(--slate); font-size: .875rem; }
 .meta-grid dd { margin: .15rem 0 0; font-weight: 600; line-height: 1.5; }
 
@@ -525,6 +526,7 @@ a.chip:hover { border-color: var(--ink); }
 
 @media (max-width: 860px) {
   .cs-hero-grid, .cs-section { grid-template-columns: 1fr; }
+  .meta-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 2rem; }
   .cs-hero-art { justify-self: start; max-width: 20rem; }
   .cs-section:not(.cs-section--full) .cs-title { position: static; }
   .steps--3 { grid-template-columns: 1fr 1fr; }
