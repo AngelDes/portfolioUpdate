@@ -413,6 +413,7 @@ a.chip:hover { border-color: var(--ink); }
    Case study page (jumpcloud.html and future pages)
    -------------------------------------------------------------------------- */
 .page-hero { padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem); }
+.page-hero:has(.meta-grid) { padding-bottom: 0; }
 .back { display: inline-block; margin-bottom: 2rem; color: var(--cobalt); font-weight: 600; text-decoration: none; }
 .back:hover { color: var(--ink); text-decoration: underline; text-underline-offset: .3em; }
 .page-title {
@@ -484,9 +485,10 @@ a.chip:hover { border-color: var(--ink); }
 .cs-body { padding-bottom: clamp(4rem, 8vw, 6rem); }
 .cs-kind { margin: 0 0 1rem; color: var(--slate); font-size: .9375rem; }
 
-.meta-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 1.25rem clamp(2rem, 5vw, 4rem); margin: 0; padding: 2.5rem 0 3rem; }
-.meta-grid dt { color: var(--slate); font-size: .875rem; }
-.meta-grid dd { margin: .15rem 0 0; font-weight: 600; line-height: 1.5; }
+/* Fact sheet band: hairline above, the next section's hairline below */
+.meta-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 1rem clamp(2rem, 5vw, 4rem); margin: 2rem 0 0; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.meta-grid dt { color: var(--slate); font-size: .75rem; letter-spacing: .04em; line-height: 1.4; }
+.meta-grid dd { margin: .2rem 0 0; font-weight: 500; line-height: 1.5; }
 
 .cs-section {
   display: grid;
