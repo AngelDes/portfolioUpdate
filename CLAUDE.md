@@ -24,9 +24,9 @@ Goal: a portfolio that sells. Minimal, modern, with personality. Written for hir
 ## JumpCloud page: content rules
 
 - Never name competitors or write comparisons with other products. Describe the feature on its own terms.
-- Do not use internal design system names, internal tools or anything confidential unless the user says it is public. Use descriptions instead, such as "the then-new design system" and "the current one".
+- The design system names Stratus (second era) and Circuit (current, AI-enabled) are approved for the JumpCloud use case. Do not use other internal names, internal tools or anything confidential unless the user says it is public; use descriptions instead.
 - Screens must be redacted or representative. Check with the user before adding live prototypes or design system screens.
-- Story so far (from the user, to be confirmed): the feature is Active Directory Integrations, an admin connects Active Directory to JumpCloud and chooses the source of truth per user (Active Directory, JumpCloud, or both). About three years of work in three chapters, one per design system era: the bridge (legacy design system), delegated authority (second design system), cloud setup and attribute mapping (current design system, with AI tooling). Handoff became shared ownership: the user shares a branch, frontend integrates it into production code behind feature flags in staging, and the user does acceptance testing. The user also introduced Cursor and Storybook to the team.
+- Story so far (from the user, to be confirmed): the feature is Active Directory Integrations, an admin connects Active Directory to JumpCloud and chooses the source of truth per user (Active Directory, JumpCloud, or both). About three years of work in three chapters, one per design system era: the bridge (legacy design system), delegated authority (Stratus), cloud setup and attribute mapping (Circuit, with AI tooling). Handoff became shared ownership: the user shares a branch, frontend integrates it into production code behind feature flags in staging, and the user does acceptance testing. The user also introduced Cursor and Storybook to the team.
 
 ## Design system (in `site.css`)
 
