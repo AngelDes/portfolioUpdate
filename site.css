@@ -19,7 +19,7 @@
 
   /* Gradients: same blue family. "shine" is the headline gloss, "glow" the dark-band version. */
   --grad: linear-gradient(90deg, #1B35B8 0%, #3D6BFF 100%);
-  --grad-shine: linear-gradient(100deg, #1B35B8 0%, #3D6BFF 36%, #8DB2FF 48%, #2F5BF0 60%, #1B35B8 100%);
+  --grad-shine: linear-gradient(100deg, #1B35B8 0%, #3D6BFF 55%, #5F8AFF 88%, #3D6BFF 100%);
   --grad-night: linear-gradient(95deg, #4E7DFF 0%, #7FB0FF 50%, #8FDBFF 100%);
 
   /* Type */
@@ -90,7 +90,7 @@ h1, h2, h3, h4, p, ul, dl, figure { margin-top: 0; }
 .hero::before,
 .hero::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
 .hero::before { top: -25%; right: -8%; width: 60%; height: 95%; background: radial-gradient(closest-side, rgba(61, 107, 255, .20), rgba(61, 107, 255, 0)); }
-.hero::after { bottom: -25%; left: -10%; width: 55%; height: 80%; background: radial-gradient(closest-side, rgba(43, 180, 255, .18), rgba(43, 180, 255, 0)); }
+.hero::after { bottom: -25%; left: -10%; width: 55%; height: 80%; background: radial-gradient(closest-side, rgba(43, 180, 255, .08), rgba(43, 180, 255, 0)); }
 .hero-top {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
@@ -113,7 +113,7 @@ h1, h2, h3, h4, p, ul, dl, figure { margin-top: 0; }
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  filter: drop-shadow(0 .06em .22em rgba(47, 107, 255, .38));
+  filter: drop-shadow(0 .04em .12em rgba(47, 107, 255, .2));
 }
 
 /* The art fills the headline's height, so the two line up top and bottom */
