@@ -21,6 +21,13 @@ Goal: a portfolio that sells. Minimal, modern, with personality. Written for hir
 - Numbers only for real sequences (process steps).
 - Keep copy exactly as written unless the user asks to change it. Do not invent facts, metrics or claims.
 
+## JumpCloud page: content rules
+
+- Never name competitors or write comparisons with other products. Describe the feature on its own terms.
+- Do not use internal design system names, internal tools or anything confidential unless the user says it is public. Use descriptions instead, such as "the then-new design system" and "the current one".
+- Screens must be redacted or representative. Check with the user before adding live prototypes or design system screens.
+- Story so far (from the user, to be confirmed): the feature is Active Directory Integrations, an admin connects Active Directory to JumpCloud and chooses the source of truth per user (Active Directory, JumpCloud, or both). About three years of work in three chapters, one per design system era: the bridge (legacy design system), delegated authority (second design system), cloud setup and attribute mapping (current design system, with AI tooling). Handoff became shared ownership: the user shares a branch, frontend integrates it into production code behind feature flags in staging, and the user does acceptance testing. The user also introduced Cursor and Storybook to the team.
+
 ## Design system (in `site.css`)
 
 Tokens: `--chalk #ECEEF4`, `--chalk-deep #E0E3EE`, `--ink #12141F`, `--cobalt #2447D6`, `--marigold #F2B01E`, `--slate #5B6178`, `--plum #3A1F3D`, `--line rgba(18,20,31,.16)`.
