@@ -14,6 +14,12 @@ Goal: a portfolio that sells. Minimal, modern, with personality. Written for hir
 - `style.css`: legacy, no page links to it. Do not use. Safe to delete once the user agrees.
 - `assets/{project}/x.png`: where real images go (`assets/jc`, `assets/polistat`, `assets/befective`, ...). `assets/if` has an unknown purpose; ask before touching it.
 
+## How to work with the user
+
+- Before acting on a request, state concerns and alternatives briefly. Do not just agree: the user asked for this to avoid bias. Separate what was asked from what you would choose.
+- Decide together, then change. For visual or copy decisions, show options first (a preview or a short list) and wait for a pick.
+- Flag trade-offs honestly, including for things already built.
+
 ## Brand and voice
 
 - Brand is **"Angel Arreguín"** everywhere (logo, titles, footer). Never "Luis Angel".
