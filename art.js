@@ -25,6 +25,59 @@
 
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 
+  // data-kind="blocks": modular blocks tiled over a grid, studs drawn as dots that shrink away from the marigold block
+  function buildBlocks(host, cols, rows, hc, hr, rand, animate) {
+    var U = 40, gc = Math.max(6, Math.round(cols * 1.6)), gr = Math.max(5, Math.round(rows * 1.6));
+    var grid = [], r, c, blocks = [];
+    for (r = 0; r < gr; r++) { grid.push([]); for (c = 0; c < gc; c++) { grid[r].push(false); } }
+    var sizes = [[4, 2], [2, 2], [2, 2], [3, 2], [2, 1], [4, 1], [2, 2]];
+    function fits(x, y, w, h) {
+      if (x + w > gc || y + h > gr) { return false; }
+      for (var j = y; j < y + h; j++) { for (var i = x; i < x + w; i++) { if (grid[j][i]) { return false; } } }
+      return true;
+    }
+    for (r = 0; r < gr; r++) {
+      for (c = 0; c < gc; c++) {
+        if (grid[r][c]) { continue; }
+        var opts = sizes.filter(function (sz) { return fits(c, r, sz[0], sz[1]); });
+        if (!opts.length) { opts = [[1, 2], [2, 1], [1, 1]].filter(function (sz) { return fits(c, r, sz[0], sz[1]); }); }
+        var sz = opts[Math.floor(rand() * opts.length)];
+        for (var j = r; j < r + sz[1]; j++) { for (var i = c; i < c + sz[0]; i++) { grid[j][i] = true; } }
+        blocks.push({ x: c, y: r, w: sz[0], h: sz[1] });
+      }
+    }
+    // the marigold block is the one nearest the focus given by data-hit
+    var fx = (hc + 0.5) / cols * gc, fy = (hr + 0.5) / rows * gr, hitBlock = null, best = Infinity;
+    blocks.forEach(function (b) {
+      var d = Math.hypot(b.x + b.w / 2 - fx, b.y + b.h / 2 - fy);
+      if (b.w * b.h >= 2 && d < best) { best = d; hitBlock = b; }
+    });
+    var cx0 = hitBlock.x + hitBlock.w / 2, cy0 = hitBlock.y + hitBlock.h / 2, maxD = 0;
+    [[0, 0], [gc, 0], [0, gr], [gc, gr]].forEach(function (p) { maxD = Math.max(maxD, Math.hypot(p[0] - cx0, p[1] - cy0)); });
+
+    var w = gc * U, h = gr * U, m = 2, gap = 3;
+    var svg = node('svg', { viewBox: (-m) + ' ' + (-m) + ' ' + (w + m * 2) + ' ' + (h + m * 2), 'aria-hidden': 'true', focusable: 'false' });
+    if (host.getAttribute('data-align') === 'end') { svg.setAttribute('preserveAspectRatio', 'xMaxYMid meet'); }
+    blocks.forEach(function (b) {
+      var isHit = b === hitBlock, lift = isHit ? U * 0.22 : 0;
+      var g = node('g', { transform: 'translate(' + (lift * 0.6).toFixed(1) + ' ' + (-lift).toFixed(1) + ')' });
+      g.appendChild(node('rect', { x: b.x * U + gap / 2, y: b.y * U + gap / 2, width: b.w * U - gap, height: b.h * U - gap, rx: 6, 'class': isHit ? 'bezel hit' : 'bezel' }));
+      for (var j = 0; j < b.h; j++) {
+        for (var i = 0; i < b.w; i++) {
+          var sx = (b.x + i + 0.5) * U, sy = (b.y + j + 0.5) * U;
+          var d = Math.hypot(b.x + i + 0.5 - cx0, b.y + j + 0.5 - cy0);
+          var t = Math.min(1, d / maxD);
+          var rad = isHit ? U * 0.3 : U * (0.08 + (1 - Math.pow(t, 0.85)) * 0.22);
+          var dot = node('circle', { cx: sx.toFixed(1), cy: sy.toFixed(1), r: rad.toFixed(2), 'class': 'cell' });
+          if (animate) { dot.style.setProperty('--d', Math.round(t * 700) + 'ms'); }
+          g.appendChild(dot);
+        }
+      }
+      svg.appendChild(g);
+    });
+    host.appendChild(svg);
+  }
+
   function build(host) {
     var cols = parseInt(host.getAttribute('data-cols'), 10) || 6;
     var rows = parseInt(host.getAttribute('data-rows'), 10) || 5;
@@ -33,6 +86,8 @@
     var hr = parseInt(hit[1], 10) || 0;
     var rand = rng(parseInt(host.getAttribute('data-seed'), 10) || 7);
     var animate = host.hasAttribute('data-animate');
+
+    if (host.getAttribute('data-kind') === 'blocks') { buildBlocks(host, cols, rows, hc, hr, rand, animate); return; }
 
     var pitch = 20;
     var gc = Math.max(8, Math.round(cols * 2.6));
