@@ -350,7 +350,7 @@ a.chip:hover { border-color: var(--ink); }
    Contact band and footer
    -------------------------------------------------------------------------- */
 .band-dark { background: var(--plum); color: var(--chalk); }
-.contact { position: relative; isolation: isolate; overflow-x: clip; padding: clamp(5rem, 10vw, 8rem) 0 4rem; }
+.contact { position: relative; isolation: isolate; overflow: clip; padding: clamp(5rem, 10vw, 8rem) 0 4rem; }
 .contact::before,
 .contact::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
 .contact::before { top: -30%; right: -8%; width: 60%; height: 110%; background: radial-gradient(closest-side, rgba(61, 107, 255, .45), rgba(61, 107, 255, 0)); }
@@ -525,4 +525,30 @@ a.chip:hover { border-color: var(--ink); }
 @media (max-width: 480px) {
   .meta-grid { grid-template-columns: 1fr; }
   .steps--3 { grid-template-columns: 1fr; }
+}
+
+
+/* --------------------------------------------------------------------------
+   AI statement band (above the contact band)
+   -------------------------------------------------------------------------- */
+.ai-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.ai-art { max-width: 20rem; }
+.ai-kicker { margin: 0 0 1.5rem; font-weight: 600; color: var(--cobalt); }
+.ai-kicker::after { content: ""; display: block; width: 3.5rem; height: 3px; margin-top: 1rem; background: var(--grad); }
+.ai-statement {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 1rem + 3vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+}
+@media (max-width: 860px) {
+  .ai-grid { grid-template-columns: 1fr; }
+  .ai-art { max-width: 12rem; }
 }
