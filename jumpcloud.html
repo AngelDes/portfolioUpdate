@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Sora:wght@300..700&display=swap">
-<link rel="stylesheet" href="site.css?v=20261028g">
+<link rel="stylesheet" href="site.css?v=20261028h">
 </head>
 <body>
 
@@ -62,8 +62,8 @@
         <h2 class="section-title">The problem</h2>
       </div>
       <div class="body-text">
-        <p>Choosing which system is the authority for a user is a high-stakes decision, because a wrong choice affects real accounts. The first versions were only a start. Delegated authority was meant to keep both sides in sync in real time, but it did not, and setting it up took too many steps and configurations on servers and domain controllers. That led to configuration errors.</p>
-        <p>We shortened the process, but not enough. The setup itself had to change.</p>
+        <p>To connect Active Directory to JumpCloud, an admin first had to install software on their domain controllers. For larger organisations that was a wall. Many admins could not, or would not, touch those servers, especially when a reboot was involved, and especially where legacy systems and strict change management were the norm. The people who needed the integration most were often the ones who could not even try it.</p>
+        <p>Each fix exposed a different problem. Once admins could connect, they needed to choose which system was in charge of a user. Delegated authority was meant to keep both sides in sync in real time, but it did not, and setting it up took too many steps and configurations on servers and domain controllers. That led to configuration errors. We shortened the process, but not enough. The setup itself had to move.</p>
         <p>[Evidence, if you can share it: support tickets, error rates, setup time. Leave out anything you can't share.]</p>
       </div>
     </div>
@@ -73,29 +73,35 @@
   <section class="section section--tint">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="section-title">Three chapters</h2>
-        <p class="section-lede">Each chapter answered the problem in front of us, and each answer showed the next one. Each one also moved the feature onto a newer design system.</p>
+        <h2 class="section-title">Four chapters</h2>
+        <p class="section-lede">Each chapter answered the problem in front of us, and each answer showed the next one. The first three each moved the feature onto a newer design system. The fourth has concepts and designs ready, and has not shipped.</p>
       </div>
 
       <!-- Replace each .step-art contents with: <img src="assets/jc/step1.png" alt="..."> -->
-      <ol class="steps steps--3">
+      <ol class="steps">
         <li class="step">
           <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="0,0" data-seed="3"></div></div>
           <span class="step-num">1</span>
-          <h3>2023: The bridge</h3>
-          <p>It started as one small enhancement to an existing feature. The first need was simple to state and hard to design: let an admin create the connection between Active Directory and JumpCloud at all. This work was built on the legacy design system.</p>
+          <h3>2023: Getting connected</h3>
+          <p>It started as one small enhancement. I designed how an admin creates the connection for the many who could not install anything on their domain controllers. This work was built on the legacy design system.</p>
         </li>
         <li class="step">
           <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="1,1" data-seed="8"></div></div>
           <span class="step-num">2</span>
-          <h3>2024 to 2025: Delegated authority</h3>
-          <p>Admins could now choose the authority for their users: Active Directory, JumpCloud, or both. We moved to the Stratus design system to handle the complexity on both the server side and the platform side. Real-time sync and the number of setup steps were the weak points.</p>
+          <h3>2024 to 2025: Choosing who is in charge</h3>
+          <p>Admins could now pick Active Directory, JumpCloud, or both as the authority for their users. We moved to the Stratus design system to handle the complexity on both the server side and the platform side. Real-time sync and the number of setup steps were the weak points.</p>
         </li>
         <li class="step">
           <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="2,1" data-seed="13"></div></div>
           <span class="step-num">3</span>
-          <h3>2026: Cloud setup and attribute mapping</h3>
-          <p>A cloud setup path to reduce the work admins had to do on servers and domain controllers, and attribute mapping to control how user data lines up between the two systems. The whole feature moved to the Circuit design system, using AI tooling.</p>
+          <h3>2026: Setup in the cloud</h3>
+          <p>Configuration moved off the servers and into the admin portal, with attribute mapping to control how user data lines up between the two systems. The feature moved to the Circuit design system, using AI tooling.</p>
+        </li>
+        <li class="step">
+          <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="2,2" data-seed="19"></div></div>
+          <span class="step-num">4</span>
+          <h3>Next: AI-assisted setup</h3>
+          <p>Concepts and designs are done for AI-assisted configuration. It has not shipped, so I treat it as the next question and not as a result.</p>
         </li>
       </ol>
     </div>
@@ -109,7 +115,7 @@
       </div>
       <div class="body-text">
         <p>No single project here was large. Each started as a bounded enhancement and ended up exposing the next constraint. Staying with the feature meant I could design each round with the history of the last one in mind, instead of starting over every time.</p>
-        <p>[One example: a decision from an early chapter that paid off, or a constraint you only understood after living with the feature for a year.]</p>
+        <p>One example: letting the connection work without installing on a domain controller removed the biggest wall, but in setups where Active Directory owned the passwords it only partly worked. That gap is what led to the delegation chapter. Seeing it coming was only possible because I had designed the first fix.</p>
       </div>
     </div>
   </section>
@@ -176,7 +182,7 @@
         <h2 class="section-title">Outcome</h2>
       </div>
       <div class="body-text">
-        <p>The work is still going. [What has shipped to customers so far, and what is next.]</p>
+        <p>The work is still going. Admins can create the connection without installing on their domain controllers, and can choose the authority for their users. The cloud setup and attribute mapping on Circuit are the current chapter, and AI-assisted setup is next. [Confirm what has shipped to customers, and add a number or a customer outcome you are comfortable publishing.]</p>
       </div>
       <div class="metric">
         <span class="metric-value">[Metric]</span>
@@ -223,7 +229,7 @@
   <div class="wrap">© 2026 Angel Arreguín</div>
 </footer>
 
-<script src="art.js?v=20261028g" defer></script>
-<script src="cursor.js?v=20261028g" defer></script>
+<script src="art.js?v=20261028h" defer></script>
+<script src="cursor.js?v=20261028h" defer></script>
 </body>
 </html>
