@@ -61,7 +61,7 @@ Tokens: `--chalk #ECEEF4`, `--chalk-deep #E0E3EE`, `--ink #12141F`, `--cobalt #2
 
 ## Open items (unverified or undecided)
 
-- Years of experience: homepage says 14 in two places; the handoff mentioned 12. Confirm.
+- Years of experience (resolved): 14 years in design, 12 in UX. Resume facts say both; "14 years, 8 companies" in the resume intro refers to the design career.
 - Polistat dates ("2018 to 2019") are a placeholder guess.
 - Lynit: "measurement framework the team still uses today" and the +40% / -25% / -35% / "~40%" figures are unverified.
 - Four case studies show "Duration: Not specified".
