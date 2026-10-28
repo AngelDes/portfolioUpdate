@@ -5,6 +5,7 @@
    data-seed picks the variation: frame shape (circle, rounded square, stadium) and how dot size
    behaves (radial, linear, twin focus, ripples). The same seed always draws the same art.
    data-animate plays the single load sequence: dots appear outward from the focus, then the mark fills.
+   data-kind="blocks" | "book" | "heat" swaps the grille for a project-specific piece (cols/rows/hit are ignored for book and heat).
    data-align="end" pins the art to the right edge when its box is wider than the art. */
 (function () {
   var NS = 'http://www.w3.org/2000/svg';
@@ -78,6 +79,77 @@
     host.appendChild(svg);
   }
 
+  function makeSvg(host, w, h) {
+    var svg = node('svg', { viewBox: '0 0 ' + w + ' ' + h, 'aria-hidden': 'true', focusable: 'false' });
+    if (host.getAttribute('data-align') === 'end') { svg.setAttribute('preserveAspectRatio', 'xMaxYMid meet'); }
+    return svg;
+  }
+
+  function addDot(svg, x, y, r, isHit, animate, delay) {
+    var dot = node('circle', { cx: x.toFixed(1), cy: y.toFixed(1), r: r.toFixed(2), 'class': isHit ? 'cell hit' : 'cell' });
+    if (animate) { dot.style.setProperty('--d', Math.round(delay) + 'ms'); }
+    svg.appendChild(dot);
+  }
+
+  // data-kind="book": an open book. Prose on the left page, an indented outline on the right, one node is the hit.
+  function buildBook(host, rand, animate) {
+    var P = 26, cols = 8, rows = 10, ox = 52, oy = 30, gap = 8, pad = 14;
+    var W = cols * P + 28, H = rows * P + 36, xr = ox + W + gap;
+    var svg = makeSvg(host, 520, 330);
+    [ox - pad, xr - pad].forEach(function (x) {
+      svg.appendChild(node('rect', { x: x, y: oy - 18, width: W, height: H, rx: 12, 'class': 'bezel' }));
+    });
+    var r = 0, c, n, i, last, len;
+    while (r < rows) {
+      n = 3 + Math.floor(rand() * 3);
+      for (i = 0; i < n && r < rows; i++, r++) {
+        last = i === n - 1;
+        len = last ? 2 + Math.floor(rand() * (cols - 4)) : cols - Math.floor(rand() * 2);
+        for (c = 0; c < len; c++) { addDot(svg, ox + c * P + P / 2 - 2, oy + r * P + P / 2, 3.1, false, animate, (r * 40 + c * 25)); }
+      }
+      if (r < rows) { r++; }
+    }
+    var hitRow = 2 + Math.floor(rand() * (rows - 4));
+    var level = 0;
+    for (r = 0; r < rows; r++) {
+      var step = rand();
+      level = clamp(level + (step < 0.35 ? 1 : step < 0.7 ? -1 : 0), 0, 2);
+      if (r === 0) { level = 0; }
+      var runLen = 3 + Math.floor(rand() * 4);
+      var x = xr + level * P * 1.1 + P / 2 - 2, y = oy + r * P + P / 2;
+      var isHit = r === hitRow;
+      addDot(svg, x, y, isHit ? 7 : (level === 0 ? 5 : 4), isHit, animate, 700 + r * 40);
+      for (c = 1; c < runLen; c++) { addDot(svg, x + c * P * 0.82, y, 1.9, false, animate, 800 + r * 40 + c * 25); }
+    }
+    host.appendChild(svg);
+  }
+
+  // data-kind="heat": a rectangular heatmap. Dot size is intensity from three hotspots, the hottest cell is the hit.
+  function buildHeat(host, rand, animate) {
+    var cols = 15, rows = 10, P = 31, ox = 40, oy = 36;
+    var base = [[4.2, 3.2, 3.0, 1], [10.4, 5.6, 3.6, 0.9], [7, 7.6, 2.2, 0.55]];
+    var spots = base.map(function (b) {
+      return [clamp(b[0] + (rand() - 0.5) * 2.4, 2, cols - 3), clamp(b[1] + (rand() - 0.5) * 2, 1.5, rows - 2), b[2], b[3]];
+    });
+    var svg = makeSvg(host, 520, 360), cells = [], best = null, r, c;
+    svg.appendChild(node('rect', { x: ox - 24, y: oy - 24, width: (cols - 1) * P + 44, height: (rows - 1) * P + 48, rx: 14, 'class': 'bezel' }));
+    for (r = 0; r < rows; r++) {
+      for (c = 0; c < cols; c++) {
+        var v = 0;
+        spots.forEach(function (s) { v += s[3] * Math.exp(-(Math.pow(c - s[0], 2) + Math.pow(r - s[1], 2)) / (2 * s[2] * s[2] * 0.22)); });
+        v = Math.min(1, v);
+        var cell = { c: c, r: r, v: v };
+        cells.push(cell);
+        if (!best || v > best.v) { best = cell; }
+      }
+    }
+    cells.forEach(function (k) {
+      var isHit = k === best, rad = Math.min(10, 1.6 + 8.4 * Math.pow(k.v, 0.85));
+      addDot(svg, ox + k.c * P - 2, oy + k.r * P, isHit ? 11 : rad, isHit, animate, Math.hypot(k.c - best.c, k.r - best.r) * 55);
+    });
+    host.appendChild(svg);
+  }
+
   function build(host) {
     var cols = parseInt(host.getAttribute('data-cols'), 10) || 6;
     var rows = parseInt(host.getAttribute('data-rows'), 10) || 5;
@@ -87,6 +159,9 @@
     var rand = rng(parseInt(host.getAttribute('data-seed'), 10) || 7);
     var animate = host.hasAttribute('data-animate');
 
+    var kind = host.getAttribute('data-kind');
+    if (kind === 'book') { buildBook(host, rand, animate); return; }
+    if (kind === 'heat') { buildHeat(host, rand, animate); return; }
     if (host.getAttribute('data-kind') === 'blocks') { buildBlocks(host, cols, rows, hc, hr, rand, animate); return; }
 
     var pitch = 20;
