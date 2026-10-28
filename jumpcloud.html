@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
-<title>JumpCloud — Angel Arreguín</title>
+<title>Active Directory Integrations — Angel Arreguín</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232447D6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='700' fill='%23ECEEF4' text-anchor='middle'%3ELA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,13 +30,13 @@
   <section class="page-hero">
     <div class="wrap">
       <a class="back" href="index.html#work">Back to work</a>
-      <h1 class="page-title">[Feature name]: redesigned and expanded</h1>
-      <p class="page-lede">[One sentence: what the feature is, who uses it, and what changed.]</p>
+      <h1 class="page-title">Active Directory Integrations</h1>
+      <p class="page-lede">A feature that started as one small enhancement and became three years of work: a new design system, new capabilities, and a new way of working with engineering.</p>
       <ul class="meta-list">
         <li>JumpCloud</li>
         <li>Sr. Product Designer</li>
-        <li>[Start date] to present</li>
-        <li>[Duration]</li>
+        <li>2023 to present</li>
+        <li>About three years</li>
       </ul>
     </div>
   </section>
@@ -48,9 +48,9 @@
         <h2 class="section-title">Overview</h2>
       </div>
       <div class="body-text">
-        <h3 class="body-sub">[Short headline that frames the problem]</h3>
-        <p>[What the feature does today, who it serves, and why it needed to change. 2–3 sentences.]</p>
-        <p>[Your role and scope: what you owned, who you worked with (PM, engineering, research).]</p>
+        <h3 class="body-sub">Connecting two systems without losing control of either</h3>
+        <p>Active Directory Integrations is how IT admins connect Active Directory to JumpCloud for identity and access management. For each user, the admin chooses the source of truth: Active Directory, JumpCloud, or both.</p>
+        <p>The feature already existed when I joined. Over the next three years it kept coming back, each time with a bigger question than the last. I owned the design throughout, from the first small enhancement to the move to shared code ownership with frontend engineering.</p>
       </div>
     </div>
   </section>
@@ -62,80 +62,94 @@
         <h2 class="section-title">The problem</h2>
       </div>
       <div class="body-text">
-        <p>[What wasn't working: what users couldn't do, where the old UI broke down, or what the business needed from it.]</p>
-        <p>[Evidence behind it, if you have it: support tickets, research findings, usage data. Leave out anything you can't share.]</p>
+        <p>Choosing which system is the authority for a user is a high-stakes decision, because a wrong choice affects real accounts. The first versions were only a start. Delegated authority was meant to keep both sides in sync in real time, but it did not, and setting it up took too many steps and configurations on servers and domain controllers. That led to configuration errors.</p>
+        <p>We shortened the process, but not enough. The setup itself had to change.</p>
+        <p>[Evidence, if you can share it: support tickets, error rates, setup time. Leave out anything you can't share.]</p>
       </div>
     </div>
   </section>
 
-  <!-- Process: this is a real sequence, so the steps are numbered -->
+  <!-- Process: a real sequence, three chapters in time order -->
   <section class="section section--tint">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="section-title">What I did</h2>
-        <p class="section-lede">[Short intro: how the work moved from audit to shipped design.]</p>
+        <h2 class="section-title">Three chapters</h2>
+        <p class="section-lede">Each chapter answered the problem in front of us, and each answer showed the next one. Each one also moved the feature onto a newer design system.</p>
       </div>
 
       <!-- Replace each .step-art contents with: <img src="assets/jc/step1.png" alt="..."> -->
-      <ol class="steps">
+      <ol class="steps steps--3">
         <li class="step">
           <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="0,0" data-seed="3"></div></div>
           <span class="step-num">1</span>
-          <h3>[Step one: e.g. Audit]</h3>
-          <p>[One line]</p>
+          <h3>2023: The bridge</h3>
+          <p>It started as one small enhancement to an existing feature. The first need was simple to state and hard to design: let an admin create the connection between Active Directory and JumpCloud at all. This work was built on the legacy design system.</p>
         </li>
         <li class="step">
           <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="1,1" data-seed="8"></div></div>
           <span class="step-num">2</span>
-          <h3>[Step two: e.g. Redesign]</h3>
-          <p>[One line]</p>
+          <h3>2024 to 2025: Delegated authority</h3>
+          <p>Admins could now choose the authority for their users: Active Directory, JumpCloud, or both. We moved to the Stratus design system to handle the complexity on both the server side and the platform side. Real-time sync and the number of setup steps were the weak points.</p>
         </li>
         <li class="step">
           <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="2,1" data-seed="13"></div></div>
           <span class="step-num">3</span>
-          <h3>[Step three: e.g. New capabilities]</h3>
-          <p>[One line]</p>
-        </li>
-        <li class="step">
-          <div class="step-art panel"><div class="art" data-cols="3" data-rows="3" data-hit="2,2" data-seed="21"></div></div>
-          <span class="step-num">4</span>
-          <h3>[Step four: e.g. Handoff and release]</h3>
-          <p>[One line]</p>
+          <h3>2026: Cloud setup and attribute mapping</h3>
+          <p>A cloud setup path to reduce the work admins had to do on servers and domain controllers, and attribute mapping to control how user data lines up between the two systems. The whole feature moved to the Circuit design system, using AI tooling.</p>
         </li>
       </ol>
     </div>
   </section>
 
-  <!-- AI-augmented workflow -->
+  <!-- Why it kept coming back -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="section-title">How AI changed the work</h2>
-        <p class="section-lede">[One sentence on how Figma, Cursor, Claude and Storybook fit into this project. List only what you actually used.]</p>
+        <h2 class="section-title">Why it kept coming back</h2>
       </div>
-      <div class="compare">
-        <div>
-          <h3>Without AI</h3>
-          <ul>
-            <li>[How this step used to work]</li>
-            <li>[Time or effort it took, if you can say]</li>
-            <li>[Where it got stuck]</li>
-          </ul>
-        </div>
-        <div class="with">
-          <h3>With AI</h3>
-          <ul>
-            <li>[How it works now]</li>
-            <li>[What got faster or better]</li>
-            <li>[What you still decide yourself]</li>
-          </ul>
-        </div>
+      <div class="body-text">
+        <p>No single project here was large. Each started as a bounded enhancement and ended up exposing the next constraint. Staying with the feature meant I could design each round with the history of the last one in mind, instead of starting over every time.</p>
+        <p>[One example: a decision from an early chapter that paid off, or a constraint you only understood after living with the feature for a year.]</p>
       </div>
     </div>
   </section>
 
-  <!-- Selected screens -->
+  <!-- Shared ownership and AI -->
   <section class="section section--tint">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">From handoff to shared ownership</h2>
+        <p class="section-lede">With the move to Circuit, the way we work changed as much as the interface. I also introduced Cursor and Storybook into the team's process.</p>
+      </div>
+      <div class="compare">
+        <div>
+          <h3>Handoff</h3>
+          <ul>
+            <li>[How a design reached engineering before: files, specs, review]</li>
+            <li>[Where meaning got lost between design and build]</li>
+          </ul>
+        </div>
+        <div class="with">
+          <h3>Shared ownership</h3>
+          <ul>
+            <li>I share my branch, and frontend integrates it into production code</li>
+            <li>Changes ship behind feature flags in staging</li>
+            <li>I run acceptance testing before release</li>
+            <li>[What got faster or better, in your words]</li>
+          </ul>
+        </div>
+      </div>
+      <ul class="expertise tool-line">
+        <li><span class="chip">Figma</span></li>
+        <li><span class="chip">Cursor</span></li>
+        <li><span class="chip">Claude</span></li>
+        <li><span class="chip">Storybook</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Selected screens -->
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
         <h2 class="section-title">Selected screens</h2>
@@ -145,24 +159,24 @@
         <figure class="shot shot--wide">
           <!-- Replace the frame with: <img src="assets/jc/screen1.png" alt="[Describe the screen]"> -->
           <div class="frame panel"><div class="art" data-cols="7" data-rows="3" data-hit="4,1" data-seed="31"></div></div>
-          <figcaption>Fig 1. [What this screen shows]</figcaption>
+          <figcaption>Fig 1. [What this screen shows, for example choosing the authority]</figcaption>
         </figure>
         <figure class="shot shot--wide">
           <div class="frame panel"><div class="art art--cobalt" data-cols="7" data-rows="3" data-hit="1,1" data-seed="37"></div></div>
-          <figcaption>Fig 2. [What this screen shows]</figcaption>
+          <figcaption>Fig 2. [What this screen shows, for example attribute mapping]</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
   <!-- Outcome -->
-  <section class="section">
+  <section class="section section--tint">
     <div class="wrap">
       <div class="section-head">
         <h2 class="section-title">Outcome</h2>
       </div>
       <div class="body-text">
-        <p>[What shipped and who it helped.]</p>
+        <p>The work is still going. [What has shipped to customers so far, and what is next.]</p>
       </div>
       <div class="metric">
         <span class="metric-value">[Metric]</span>
@@ -172,23 +186,23 @@
   </section>
 
   <!-- Takeaways -->
-  <section class="section section--tint">
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
         <h2 class="section-title">Takeaways</h2>
       </div>
       <div class="takeaways">
         <div>
-          <h3>[Takeaway one]</h3>
-          <p>[One sentence.]</p>
+          <h3>Stay with the hard problem</h3>
+          <p>A feature this complex is rarely solved in one project, and the design improves when the same person carries it from round to round.</p>
         </div>
         <div>
-          <h3>[Takeaway two]</h3>
-          <p>[One sentence.]</p>
+          <h3>Share the branch, not only the file</h3>
+          <p>Working in the same code as engineering, with feature flags and acceptance testing, closes the gap that handoff leaves open.</p>
         </div>
         <div>
-          <h3>[Takeaway three]</h3>
-          <p>[One sentence.]</p>
+          <h3>Bring tools in by using them</h3>
+          <p>Cursor and Storybook spread through the team because they were already part of how the work shipped.</p>
         </div>
       </div>
     </div>
