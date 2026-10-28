@@ -80,22 +80,29 @@ h1, h2, h3, h4, p, ul, dl, figure { margin-top: 0; }
 /* --------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------- */
-.hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem); }
-.hero-grid {
+.hero { padding: clamp(3rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem); }
+.hero-top {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
 }
 .hero h1 {
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(3rem, 1rem + 6.6vw, 6.5rem);
+  font-size: clamp(2.75rem, 1rem + 5.4vw, 5.5rem);
   line-height: .96;
   letter-spacing: -.02em;
-  margin-bottom: 2rem;
+  text-wrap: balance;
 }
-.hero-sub { max-width: 34rem; font-size: 1.125rem; line-height: 1.65; margin-bottom: 2rem; }
+.accent { color: var(--cobalt); }
+
+/* The art fills the headline's height, so the two line up top and bottom */
+.hero .hero-art { position: relative; }
+.hero .hero-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.hero-intro { margin-top: clamp(2rem, 4vw, 3rem); }
+.hero-sub { max-width: 36rem; margin-bottom: 2rem; font-size: 1.125rem; line-height: 1.65; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
 
 .btn-primary,
@@ -401,8 +408,9 @@ a.chip:hover { border-color: var(--ink); }
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
-  .hero-grid, .jc, .feature, .work-row, .compare, .takeaways, .footer-columns { grid-template-columns: 1fr; }
-  .hero-art { max-width: 22rem; }
+  .hero-top, .jc, .feature, .work-row, .compare, .takeaways, .footer-columns { grid-template-columns: 1fr; }
+  .hero .hero-art { position: static; max-width: 22rem; }
+  .hero .hero-art svg { position: static; height: auto; }
   .feature--flip .feature-art { order: 0; }
   .profile-row { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }

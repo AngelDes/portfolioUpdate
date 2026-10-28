@@ -32,6 +32,8 @@
     var w = (cols - 1) * pitch + size + margin * 2;
     var h = (rows - 1) * pitch + size + margin * 2;
     var svg = node('svg', { viewBox: '0 0 ' + w + ' ' + h, 'aria-hidden': 'true', focusable: 'false' });
+    // data-align="end" pins the art to the right edge when its box is wider than the art
+    if (host.getAttribute('data-align') === 'end') { svg.setAttribute('preserveAspectRatio', 'xMaxYMid meet'); }
 
     for (var r = 0; r < rows; r++) {
       for (var c = 0; c < cols; c++) {
