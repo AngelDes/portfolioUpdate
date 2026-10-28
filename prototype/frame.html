@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Prototype</title>
+<style>html,body{margin:0;height:100%;overflow:hidden}adi-prototype{display:block;height:100vh}</style>
+</head>
+<body>
+<adi-prototype></adi-prototype>
+<script>
+/* Only run inside the portfolio page; opened directly or framed elsewhere, show nothing. */
+(function () {
+  var ok = false;
+  try { ok = window.top !== window && window.top.location.hostname === location.hostname; } catch (e) { ok = false; }
+  /* This frame is sandboxed, so top.location is unreadable: treat a parent frame as the signal. */
+  if (window.top === window) { location.replace('../jumpcloud.html#prototype'); return; }
+  document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  var s = document.createElement('script');
+  s.src = 'adi-prototype.js';
+  document.body.appendChild(s);
+})();
+</script>
+</body>
+</html>

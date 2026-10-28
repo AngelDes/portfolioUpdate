@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Sora:wght@300..700&display=swap">
-<link rel="stylesheet" href="site.css?v=20261028h">
+<link rel="stylesheet" href="site.css?v=20261028i">
 </head>
 <body>
 
@@ -156,6 +156,35 @@
     </div>
   </section>
 
+  <!-- Prototype -->
+  <section class="section" id="prototype">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">Try the latest prototype</h2>
+        <p class="section-lede">An interactive prototype of the cloud setup, built as a web component. It uses fictional data. It stays idle until you press Play, and you can pause it or go full screen at any time.</p>
+      </div>
+      <div class="proto" data-hash="f1432b43063ad1a80f0b8ad908b05099f622e4e294f3b86816ab313a37f0854a" data-src="prototype/frame.html">
+        <div class="proto-stage">
+          <div class="proto-cover">
+            <div class="proto-gate">
+              <p class="proto-note">Protected prototype. Enter the access word to start.</p>
+              <form class="proto-form">
+                <label class="proto-sr" for="proto-pw">Access word</label>
+                <input id="proto-pw" type="password" autocomplete="off" placeholder="Access word">
+                <button class="btn-primary" type="submit">Play</button>
+              </form>
+              <p class="proto-msg" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+        </div>
+        <div class="proto-bar" hidden>
+          <button type="button" class="btn-secondary proto-toggle" aria-pressed="true">Pause</button>
+          <button type="button" class="btn-secondary proto-full">Full screen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Selected screens -->
   <section class="section">
     <div class="wrap">
@@ -231,7 +260,8 @@
   <div class="wrap">© 2026 Angel Arreguín</div>
 </footer>
 
-<script src="art.js?v=20261028h" defer></script>
-<script src="cursor.js?v=20261028h" defer></script>
+<script src="art.js?v=20261028i" defer></script>
+<script src="proto.js?v=20261028i" defer></script>
+<script src="cursor.js?v=20261028i" defer></script>
 </body>
 </html>
