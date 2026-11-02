@@ -84,3 +84,12 @@ Pages load `site.css?v=...`, `art.js?v=...` and `cursor.js?v=...`. GitHub Pages 
 1. Global pass: typeface (Gloock vs Instrument Serif), heading sizes, spacing.
 2. Homepage sections: Hero (done), Now at JumpCloud, Selected work, More work, Resume, Contact.
 3. Case studies: JumpCloud, Lynit, Polistat, then Conocimiento 230, Mapeo de decisiones, Befective, Banorte Trading.
+
+## Open items added 2026-11-02 (remember these)
+- Lynit: "30%" returning users and "framework the team still uses today" are unverified. Soften or confirm with the user before they stay (user said "we can wait", so do not change yet).
+- Resume PDF download button is not added: needs the final PDF from the user, then link it from the Resume section and the contact band.
+- JumpCloud dates: resume row says 2022 to now (from the user's CV chat); the case study says the feature work spans about three years. Notion bio said 2022 to 2024 (stale, March 2025).
+- "14 years in design, 10 in UX/UI" is derived from the user's timeline (web designer from 2012, UI at Multiversidad 2014, full UX/UI from Utel 2016). Confirm if wording should change.
+- Polistat: images and prototype video live in Notion (host blocked from the sandbox). Needs user export into assets/polistat/ before the "Add visuals" section can be replaced.
+- Founding-designer story and "four engineering teams" from the CV chat are not on the site; ask which company they belong to.
+- Phone number removed from the footer on purpose (privacy). Do not re-add.

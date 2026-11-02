@@ -624,3 +624,9 @@ a.chip:hover { border-color: var(--ink); }
   .swim-text { font-size: .75rem; }
   .swim-lane { display: none; }
 }
+
+/* Resume: detail row under the current role; contact location line */
+.nice-table .row-detail td { padding-top: 0; padding-bottom: 1.1rem; }
+.nice-table .row-detail ul { margin: 0; padding-left: 1.1rem; color: var(--slate); font-size: .875rem; line-height: 1.5; }
+.nice-table .row-detail li + li { margin-top: .2rem; }
+.contact-loc { margin: 0 0 1.5rem; color: rgba(247, 248, 255, .7); font-size: .875rem; }
