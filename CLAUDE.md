@@ -23,7 +23,7 @@ Goal: a portfolio that sells. Minimal, modern, with personality. Written for hir
 ## Brand and voice
 
 - Brand is **"Angel Arreguín"** everywhere (logo, titles, footer). Never "Luis Angel".
-- Sentence-case headings. No all-caps labels, no mono labels, no arrows on links.
+- Sentence-case headings. Uppercase mono is allowed only for tags, status chips, table headers and meta (v3 design, 2026-11). No arrows on links.
 - Numbers only for real sequences (process steps).
 - Keep copy exactly as written unless the user asks to change it. Do not invent facts, metrics or claims.
 
@@ -36,7 +36,10 @@ Goal: a portfolio that sells. Minimal, modern, with personality. Written for hir
 
 ## Design system (in `site.css`)
 
-Tokens: `--chalk #ECEEF4`, `--chalk-deep #E0E3EE`, `--ink #12141F`, `--cobalt #2447D6`, `--marigold #F2B01E`, `--slate #5B6178`, `--plum #3A1F3D`, `--line rgba(18,20,31,.16)`.
+v3 redesign (2026-11): fonts Bricolage Grotesque (say it), Instrument Serif italic (stress ONE phrase per heading, class `.accent`/`.shine`), IBM Plex Mono (tags, status, meta). FONTS_LINK: https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap
+Tokens: `--chalk #F8F5EE` (warm paper), `--chalk-deep #EFEBE1`, `--ink #14151C`, `--cobalt #2447D6`, `--marigold #F2B01E`, `--slate #5A5C6B`, `--mid #252B4A` (mid-dark band, `.band-mid`), `--plum #14151C` (contact band), `--line rgba(18,20,31,.16)`.
+The "Redesign v3" block at the end of site.css overrides older rules; fold them together when cleaning up. Section tags: `<span class="tag">S.01 · Now</span>`. Status chip: `<p class="status status--live">In progress</p>`. Hero orbit is `orbit.js` + SVG in index.html. No dark mode yet.
+Known gaps: new fonts could not be rendered in the build sandbox (fallbacks used), so verify real line breaks after pushing.
 
 - Cobalt is the accent for text and links. Marigold is for fills only, always with ink text. Plum is for the dark contact band.
 - Fonts: Gloock (display, `--font-display`) and Sora (body), loaded from Google Fonts. Instrument Serif is the fallback candidate; swapping is a one-line change to `--font-display`.

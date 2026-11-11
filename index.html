@@ -8,8 +8,8 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232447D6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='700' fill='%23ECEEF4' text-anchor='middle'%3ELA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Sora:wght@300..700&display=swap">
-<link rel="stylesheet" href="site.css?v=20261111a">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@1&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css?v=20261111c">
 </head>
 <body>
 
@@ -29,34 +29,38 @@
   <!-- Hero -->
   <section class="hero">
     <div class="wrap hero-top">
-      <h1>Good <span class="accent">design solves</span> the right problem.</h1>
-      <div class="art hero-art" data-animate data-align="end" data-cols="6" data-rows="5" data-hit="3,2" data-seed="11"></div>
-    </div>
-
-    <div class="wrap hero-intro">
-      <p class="hero-sub">Senior product designer for enterprise and identity software. I take ambiguous problems from first sketch to shipped code, with AI in the loop.</p>
-      <div class="cta-row">
-        <a class="btn-primary" href="#work">View my work</a>
-        <a class="btn-secondary" href="mailto:l.angelarreguinperez@gmail.com">Get in touch</a>
+      <div class="hero-copy">
+        <span class="tag">S.00 · Product designer</span>
+        <h1>Good design solves the <em class="accent">right problem.</em></h1>
+        <p class="hero-sub">Senior product designer for enterprise and identity software. I take ambiguous problems to shipped code, with AI in the loop.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="#work">View my work</a>
+          <a class="btn-secondary" href="mailto:l.angelarreguinperez@gmail.com">Get in touch</a>
+        </div>
+        <ul class="expertise">
+          <li><span class="chip">Identity &amp; access</span></li>
+          <li><span class="chip">Design-to-code</span></li>
+          <li><a class="chip" href="design-systems.html">Design systems</a></li>
+          <li><span class="chip">AI-augmented workflows</span></li>
+          <li><span class="chip">Fintech</span></li>
+          <li><span class="chip">Public sector</span></li>
+          <li><span class="chip">SaaS</span></li>
+        </ul>
       </div>
-    </div>
-
-    <div class="wrap">
-      <ul class="traits">
-        <li>Problem-first</li>
-        <li>Systems thinker</li>
-        <li>Evidence-led</li>
-        <li>Team-minded</li>
-      </ul>
-      <ul class="expertise">
-        <li><span class="chip">Identity &amp; access</span></li>
-        <li><span class="chip">Design-to-code</span></li>
-        <li><a class="chip" href="design-systems.html">Design systems</a></li>
-        <li><span class="chip">AI-augmented workflows</span></li>
-        <li><span class="chip">Fintech</span></li>
-        <li><span class="chip">Public sector</span></li>
-        <li><span class="chip">SaaS</span></li>
-      </ul>
+      <div class="orbit" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <circle class="ring" cx="200" cy="200" r="186"/>
+          <circle class="disc" cx="200" cy="200" r="150"/>
+          <g id="orbit-dots"></g>
+          <g class="sat2-spin"><circle class="sat2" cx="200" cy="30" r="5"/></g>
+          <g class="sat-spin">
+            <circle class="sat-tail" cx="154" cy="22" r="2.5" opacity=".25"/>
+            <circle class="sat-tail" cx="170" cy="17" r="3.5" opacity=".45"/>
+            <circle class="sat-tail" cx="186" cy="14" r="4.5" opacity=".7"/>
+            <circle class="sat" cx="200" cy="14" r="9"/>
+          </g>
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -64,12 +68,14 @@
   <section id="work" class="section section--tint">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="section-title">Now at JumpCloud</h2>
+        <span class="tag">S.01 · Now</span>
+        <h2 class="section-title">Active Directory, set up in the <em class="accent">cloud.</em></h2>
       </div>
 
       <article class="jc">
         <div>
-          <h3 class="jc-title">Active Directory Integrations</h3>
+          <p class="status status--live" style="margin:0 0 1rem">In progress</p>
+          <h3 class="jc-title">JumpCloud</h3>
 
           <dl class="facts">
             <dt>Problem</dt>
@@ -116,7 +122,8 @@
   <section id="case-studies" class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="section-title">Selected work</h2>
+        <span class="tag">S.02 · Selected work</span>
+        <h2 class="section-title">Two problems, <em class="accent">shipped.</em></h2>
       </div>
 
       <article class="feature">
@@ -146,11 +153,11 @@
   </section>
 
   <!-- More work -->
-  <section class="section section--tint">
+  <section class="section band-mid">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="section-title">More work</h2>
-        <p class="section-lede">Four more ambiguous problems, four more shipped solutions.</p>
+        <span class="tag">S.03 · More work</span>
+        <h2 class="section-title">Four more, <em class="accent">same habit.</em></h2>
       </div>
 
       <ul class="work-list">
@@ -198,7 +205,8 @@
   <section id="resume" class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="section-title">Resume</h2>
+        <span class="tag">S.04 · Resume</span>
+        <h2 class="section-title">The <em class="accent">short</em> version.</h2>
       </div>
 
       <div class="r-block">
@@ -310,8 +318,8 @@
     <div class="wrap ai-grid">
       <div class="ai-art"><div class="art" data-cols="4" data-rows="4" data-hit="2,1" data-seed="17"></div></div>
       <div>
-        <p class="ai-kicker" id="ai-kicker">Designing with AI</p>
-        <p class="ai-statement">AI speeds up what I build and ship. What goes out is <span class="accent">still my call</span>.</p>
+        <span class="tag" id="ai-kicker">S.05 · Working with AI</span>
+        <p class="ai-statement">AI speeds up what I build and ship. What goes out is <em class="accent">still my call</em>.</p>
       </div>
     </div>
   </section>
@@ -321,7 +329,7 @@
 <!-- Contact band -->
 <section id="contact" class="band-dark contact">
   <div class="wrap">
-    <h2 class="contact-headline">Let's <span class="shine">connect</span></h2>
+    <h2 class="contact-headline">Let's <em class="shine">connect</em></h2>
     <p class="contact-sub">Ambiguous problem, tight timeline, or just want to talk shop. I'm around.</p>
     <p class="contact-loc">Based near Mexico City. Remote, comfortable with US time zones.</p>
     <a class="btn-contact" href="mailto:l.angelarreguinperez@gmail.com">Contact me</a>
@@ -365,7 +373,8 @@
   <div class="wrap">© 2026 Angel Arreguín</div>
 </footer>
 
-<script src="art.js?v=20261111a" defer></script>
-<script src="cursor.js?v=20261111a" defer></script>
+<script src="art.js?v=20261111c" defer></script>
+<script src="orbit.js?v=20261111c" defer></script>
+<script src="cursor.js?v=20261111c" defer></script>
 </body>
 </html>

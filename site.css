@@ -1,20 +1,23 @@
 /* ==========================================================================
    site.css: Luis Angel Arreguín portfolio, redesign v2
    Replaces style.css for pages that link to it. Old pages keep style.css.
-   Fonts (load in each page's <head>):
-   https://fonts.googleapis.com/css2?family=Gloock&family=Sora:wght@300..700&display=swap
-   To try Instrument Serif instead, change --font-display below and the font link.
+   v3 (2026-11): warm paper, Bricolage Grotesque + Instrument Serif italic + IBM Plex Mono.
+   Fonts (load in each page's <head>): see FONTS_LINK in CLAUDE.md.
+   The block at the bottom, "Redesign v3", overrides the older rules above it.
    ========================================================================== */
 
 :root {
   /* Color */
-  --chalk: #F7F8FF;        /* paper, a touch lighter and cooler */
-  --chalk-deep: #EAEDF8;   /* tinted bands and panels */
-  --ink: #12141F;          /* text, headlines */
+  --chalk: #F8F5EE;        /* warm paper */
+  --chalk-deep: #EFEBE1;   /* tinted bands and panels */
+  --ink: #14151C;          /* text, headlines */
   --cobalt: #2447D6;       /* accent: links, rules, one headline */
   --marigold: #F2B01E;     /* fills only, always with ink text */
-  --slate: #5B6178;        /* secondary text */
-  --plum: #3A1F3D;         /* dark close band */
+  --slate: #5A5C6B;        /* secondary text */
+  --plum: #14151C;         /* dark close band (contact) */
+  --mid: #252B4A;          /* mid-dark band: lighter than contact */
+  --mid-ink: #F4F1EA;
+  --mid-slate: #B4B8D0;
   --line: rgba(18, 20, 31, .16);
 
   /* Gradients: same blue family. "shine" is the headline gloss, "glow" the dark-band version. */
@@ -23,8 +26,10 @@
   --grad-night: linear-gradient(95deg, #4E7DFF 0%, #7FB0FF 50%, #8FDBFF 100%);
 
   /* Type */
-  --font-display: "Gloock", Georgia, "Times New Roman", serif;
-  --font-body: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-body: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Layout */
   --measure: 40rem;
@@ -63,7 +68,7 @@ h1, h2, h3, h4, p, ul, dl, figure { margin-top: 0; }
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(236, 238, 244, .88);
+  background: rgba(248, 245, 238, .88);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
@@ -630,3 +635,162 @@ a.chip:hover { border-color: var(--ink); }
 .nice-table .row-detail ul { margin: 0; padding-left: 1.1rem; color: var(--slate); font-size: .875rem; line-height: 1.5; }
 .nice-table .row-detail li + li { margin-top: .2rem; }
 .contact-loc { margin: 0 0 1.5rem; color: rgba(247, 248, 255, .7); font-size: .875rem; }
+
+
+/* ==========================================================================
+   Redesign v3: one idea per section. Three voices:
+   Bricolage (say it), Instrument Serif italic (stress one phrase), Plex Mono (label it).
+   ========================================================================== */
+body { font-size: 1.0625rem; line-height: 1.6; }
+p { text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+
+/* stress phrase: one per heading, never a full line */
+.accent, .shine {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+  letter-spacing: -.01em;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  filter: none;
+  color: var(--cobalt);
+}
+.shine { color: #F2B01E; }
+.band-mid .accent { color: var(--marigold); }
+
+/* mono voice: tags, labels, meta */
+.tag {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding: .3rem .6rem;
+  background: var(--ink);
+  color: var(--chalk);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.band-mid .tag { background: var(--mid-ink); color: var(--mid); }
+.status { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); white-space: nowrap; }
+.status::before { content: "[ "; }
+.status::after { content: " ]"; }
+.status--live { color: var(--cobalt); }
+.chip, .pill, .nice-table th, .meta-grid dt, .cs-kind, .feature-meta, .type-badge, .status-tag, .metric-label, .stat-label, .work-row .tags, .tool-group-label, .back, .cell-sub, .figcap, .facts dt, .profile-row h4 {
+  font-family: var(--font-mono);
+}
+.chip, .pill { font-size: .75rem; letter-spacing: .03em; color: var(--slate); border-radius: 4px; }
+.pill--ai { color: var(--ink); }
+.meta-grid dt, .nice-table th, .facts dt, .profile-row h4, .cs-kind, .feature-meta, .type-badge, .metric-label, .stat-label, .tool-group-label {
+  font-size: .75rem; letter-spacing: .06em; text-transform: uppercase;
+}
+.facts dt, .profile-row h4 { font-weight: 500; }
+.meta-grid dd, .cell-primary { font-family: var(--font-body); }
+.cell-sub { font-size: .75rem; letter-spacing: .02em; }
+.back { font-size: .8125rem; letter-spacing: .04em; text-transform: uppercase; font-weight: 500; }
+.nice-table td { font-family: var(--font-body); }
+.cell-date { font-family: var(--font-mono); font-size: .8125rem; }
+
+/* header */
+.logo { font-weight: 800; letter-spacing: -.02em; font-size: 1.125rem; }
+.site-header nav { font-family: var(--font-mono); font-size: .8125rem; letter-spacing: .04em; text-transform: uppercase; }
+.nav-cta { border-width: 1.5px; }
+
+/* headings: heavy and tight */
+.hero h1, .section-title, .jc-title, .feature h3, .work-row h3, .page-title, .cs-title, .body-sub, .stat-num,
+.metric-value, .compare h3, .takeaways h3, .contact-headline, .ai-statement, .step-num, .traits {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -.035em;
+}
+.hero h1 { font-size: 2.875rem; line-height: .98; }
+.section-title { font-size: 2.25rem; line-height: .98; }
+.page-title { font-size: 2.875rem; line-height: .98; max-width: 12ch; }
+@media (min-width: 640px) { .hero h1, .page-title { font-size: 4.5rem; } .section-title { font-size: 3rem; } }
+@media (min-width: 1024px) { .hero h1 { font-size: 5.5rem; } .page-title { font-size: 5.5rem; } .section-title { font-size: 3.75rem; } }
+.section-title::after, .ai-kicker::after { display: none; }
+.jc-title, .feature h3 { font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem); line-height: 1; }
+.cs-title { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem); line-height: 1.08; letter-spacing: -.03em; }
+.body-sub, .compare h3, .takeaways h3 { letter-spacing: -.03em; }
+.contact-headline { font-size: clamp(3.25rem, 1.5rem + 8vw, 8rem); line-height: .92; }
+.ai-statement { font-weight: 800; font-size: clamp(1.75rem, 1rem + 3vw, 3.25rem); line-height: 1.05; }
+.page-lede, .hero-sub, .section-lede { color: var(--slate); max-width: 38ch; line-height: 1.5; }
+.page-lede { font-size: 1.1875rem; max-width: 44ch; }
+.hero-sub { font-size: 1.1875rem; margin-bottom: 0; }
+.cs-content p, .facts dd, .feature p, .body-text p { max-width: 62ch; }
+
+/* hero */
+.hero { overflow: visible; padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem); }
+.hero::before, .hero::after { display: none; }
+.hero-top { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+.hero-copy { display: grid; gap: 1.5rem; justify-items: start; min-width: 0; }
+.hero-copy .tag { margin-bottom: 0; }
+.hero .expertise { margin-top: .25rem; }
+.traits { display: none; }
+.btn-primary {
+  background: var(--cobalt); box-shadow: none; border: 1.5px solid var(--cobalt); color: #fff;
+}
+.btn-primary:hover { background: var(--ink); border-color: var(--ink); }
+.btn-secondary { border-width: 1.5px; }
+
+.orbit { width: 100%; max-width: 30rem; margin-inline: auto; aspect-ratio: 1; }
+.orbit svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.orbit .dot { fill: var(--ink); }
+.orbit .dot.hit { fill: var(--cobalt); }
+.orbit .ring { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 2 7; stroke-linecap: round; }
+.orbit .disc { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.sat-spin { transform-origin: 200px 200px; animation: orbit-spin 16s linear infinite; }
+.sat2-spin { transform-origin: 200px 200px; animation: orbit-spin 26s linear infinite reverse; }
+.orbit .sat { fill: var(--marigold); stroke: var(--ink); stroke-width: 1.5; }
+.orbit .sat-tail { fill: var(--marigold); }
+.orbit .sat2 { fill: var(--cobalt); }
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .sat-spin, .sat2-spin { animation: none; } }
+@media (max-width: 860px) { .hero-top { grid-template-columns: 1fr; } .orbit { max-width: 16rem; margin-inline: 0; } }
+
+/* sections */
+.section-head { margin-bottom: clamp(2rem, 4vw, 3rem); }
+.section-head .tag { margin-bottom: 1.25rem; }
+.metric { background: var(--marigold); border-radius: 6px; }
+.metric-value { font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem); }
+.metric-label { margin-top: .25rem; }
+.stat { border-top: 2px solid var(--ink); }
+.stat-num { font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.5rem); }
+.panel { border-radius: 12px; }
+.link { color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--marigold); padding-bottom: 2px; font-weight: 600; }
+.link:hover { color: var(--cobalt); }
+.facts dt { margin-top: 1.25rem; color: var(--slate); }
+.feature-meta { margin-bottom: 1rem; }
+
+/* mid-dark band (work list) */
+.band-mid { background: var(--mid); color: var(--mid-ink); }
+.band-mid .section-lede { color: var(--mid-slate); }
+.band-mid .work-list { border-top-color: rgba(244, 241, 234, .22); }
+.band-mid .work-list li { border-bottom-color: rgba(244, 241, 234, .22); }
+.band-mid .work-row { padding: 1.5rem 0; align-items: baseline; }
+.band-mid .work-row h3 { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem); line-height: 1; }
+.band-mid .work-row:hover h3 { color: var(--marigold); }
+.band-mid .work-row .tags { color: var(--mid-slate); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
+.band-mid .work-row p { color: var(--mid-slate); max-width: 52ch; }
+.band-mid :focus-visible { outline-color: var(--marigold); }
+
+/* case-study header: tag + big name + lede, then a TL;DR triptych when present */
+.cs-kind { display: inline-block; margin: 0 0 1.25rem; padding: .3rem .6rem; background: var(--ink); color: var(--chalk); border-radius: 4px; line-height: 1.3; }
+.meta-grid { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.25rem 0; }
+.meta-grid dd { font-size: .9375rem; }
+.cs-section { padding: 2.5rem 0; }
+
+/* contact + footer */
+.contact::before, .contact::after { display: none; }
+.contact-sub { color: rgba(244, 241, 234, .82); }
+.btn-contact { background: var(--marigold); color: var(--ink); box-shadow: none; }
+.btn-contact:hover { background: var(--chalk); box-shadow: none; }
+.footer-col h4 { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; }
+.contact-loc { color: rgba(244, 241, 234, .7); }
+.cursor.on-dark .cursor-dot { background: var(--marigold); }
+li { text-wrap: pretty; }
+.back { display: block; width: fit-content; margin-bottom: 1.5rem; }
