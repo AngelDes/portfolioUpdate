@@ -794,3 +794,17 @@ h1, h2, h3 { text-wrap: balance; }
 .cursor.on-dark .cursor-dot { background: var(--marigold); }
 li { text-wrap: pretty; }
 .back { display: block; width: fit-content; margin-bottom: 1.5rem; }
+
+/* TL;DR triptych at the top of each case study */
+.tldr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 2.5rem 0 0; border-top: 1px solid var(--line); }
+.tldr > div { display: grid; gap: .4rem; align-content: start; padding: 1.25rem 1.25rem 1.25rem 0; }
+.tldr > div + div { padding-left: 1.25rem; border-left: 1px solid var(--line); }
+.tldr dt { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); }
+.tldr dd { margin: 0; line-height: 1.45; text-wrap: pretty; }
+.tldr + .meta-grid { margin-top: 0; }
+.tldr + .meta-list { margin-top: 1.5rem; }
+@media (max-width: 720px) {
+  .tldr { grid-template-columns: 1fr; }
+  .tldr > div, .tldr > div + div { padding: 1rem 0; border-left: 0; }
+  .tldr > div + div { border-top: 1px solid var(--line); }
+}
